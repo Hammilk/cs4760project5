@@ -184,10 +184,6 @@ static int randomize(void){
     return -1;
 }
 
-    
-
-
-
 int main(int argc, char* argv[]){
 
     //Seed random
