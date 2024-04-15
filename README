@@ -1,1 +1,19 @@
-INIT
+CS 4760
+AUTHOR: DAVID PHAM
+PROJECT: PROJECT 4
+
+The purpose of this project is to coordinate child processes with the use of a multi-level feedback queue.
+
+
+The following are the user input parameters for this project:
+-h "Help" Brings up user parameters for project
+-n "proc" Total amount of children to be launched
+-s "simul" Simultaneous amount of children that can be launched
+-t "timeLimitforChildren" The period of time the children will exist for
+-i "intervalInMsToLaunchChildren" The upper bound of a tie interval of which the parent will launch the children
+-f "logfile" This input is the name of the logfile that you would like to write to. Add suffix ".txt" if you want file to be .txt file.
+
+To compile the project. Enter "make" into the command line and run "./oss".
+
+To clean files, enter "make clean" into the command line.
+
