@@ -6,12 +6,16 @@
 #include<stdlib.h>
 #include<sys/types.h>
 #include<sys/msg.h>
-#include<string.h>
 
+//Various Macros
 #define SHMKEY1 2031535
 #define SHMKEY2 2031536
 #define BUFF_SZ sizeof(int)
 #define PERMS 0644
+#define reqChance 80 //defines the chance that the process makes a request
+#define termChance 2 //defines the chance that a process terminates within a loop
+
+//Randomizer Section
 
 static int randomize_helper(FILE *in){
     unsigned int seed;
@@ -25,11 +29,6 @@ static int randomize_helper(FILE *in){
     return -1;
 }
 
-typedef struct msgbuffer{
-    long mtype;
-    int resourceRequest; //+ for request, - for giving
-} msgbuffer;
-
 static int randomize(void){
     if(!randomize_helper(fopen("/dev/urandom", "r")))
         return 0;
@@ -40,10 +39,16 @@ static int randomize(void){
     return -1;
 }
 
+//Set up struct for message queue
+typedef struct{
+    long mtype;
+    int resource; //+ for request, - for giving
+} msgbuffer;
 
 int main(int argc, char** argv){ //at some point, add bound parameter
     //Arg[1] bound
 
+    //Set up message queue stuff
     msgbuffer buff;
     buff.mtype = 1;
     int msqid = 0;
@@ -53,12 +58,12 @@ int main(int argc, char** argv){ //at some point, add bound parameter
         perror("ftok");
         exit(1);
     }
-
     if((msqid = msgget(key, PERMS)) == -1){
         perror("msgget in child");
         exit(1); 
     }
-    //Check
+
+    //Set up shared memory pointers
     int shm_id = shmget(SHMKEY1, BUFF_SZ, IPC_CREAT | 0666);
     if(shm_id <= 0){
         fprintf(stderr, "Shared memory get failed.\n");
@@ -82,23 +87,75 @@ int main(int argc, char** argv){ //at some point, add bound parameter
         fprintf(stderr, "Warning: No sources for randomness.\n");
     }
 
-    //Upper bound
-    int bound = atoi(argv[1]);
+    //Initialize bound
+    int bound = rand() % (atoi(argv[1]) + 1);
+    
+    //Initalize request time
+    int requestNano = sysClockNano + bound;
+    int requestSecond = sysClockS;
+    if(requestNano > pow(10, 9)){
+        requestNano -= (pow(10, 9));
+        requestSecond++;
+    }
+
+    //Set up array to track resources
+    int resourceArray[10];
+    for(int i = 0; i < 10; i++){
+        resourceArray[i] = 0;
+    }
+    //Set up control for work loop
+    int termFlag = 0;
 
     //Work section
-    while(TODO){
+    while(!termFlag){
         //check if time to request
-        //if so, calculate request vs release
-        //then send message to request
+        if(requestSecond > *sharedSeconds || (requestSecond == *sharedSeconds) && (requestNano > *sharedNano)){
+            //Determine whether to request or release 
+            int requestGenerate = rand() % 101;
+            if(requestGenerate > reqChance){ //if requestGenerate is higher than reqchance, request
+                buff.resource = rand() % 10;
+                while(resourceArray[buff.resource] > 20){
+                    buff.resource = rand() % 10;
+                }
+            }
+            else{ //Release section
+                buff.resource = -(rand() % 10);
+                while(resourceArray[-buff.resource] < 0){ //Checks to make sure child doesn't request more processes then what exits
+                    buff.resource = -(rand() % 10);
+                }
+            }
+            //Send request/release
+            if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0) == -1){
+                perror("msgsnd to parent failed\n");
+                exit(1);
+            }
+            //If sent request message, blocking recieved until child receives resource
+            if(buff.resource > -1){
+                if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0)){
+                    perror("msgsnd to parent failed");
+                    exit(1);
+                }
+                //Increment resource in resource array to track
+                resourceArray[buff.resource]++;
+                //Reset bounds 
+                bound = rand() % (atoi(argv[1]) + 1);
+                requestNano = sysClockNano + bound;
+                requestSecond = requestSecond;
+                if(requestNano > pow(10, 9)){
+                    requestNano -= (pow(10, 9));
+                    requestSecond++;
+                }
+            }
+            else{
+                //Decrement to indicate releasing resource
+                resourceArray[buff.resource]--;
+            }
+        }     
 
-
-        if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0) == -1){
-            perror("Failed to receive message\n");
-            exit(1);
+        //Determinte if process should terminate
+        int terminateGenerate = rand() % 201;
+        if(terminateGenerate < termChance){
+            termFlag = 1;
         }
-        //Calculate if terminate
-
-
-        
     }
 }
