@@ -24,7 +24,7 @@
 #include<sys/msg.h>
 #include<stdarg.h>
 
-
+//Macros
 #define SHMKEY1 2031535
 #define SHMKEY2 2031536
 #define SHMKEY3 2031537
@@ -32,27 +32,7 @@
 #define MAXDIGITS 3
 #define PERMS 0644
  
-
-// print no more than 10k lines to a file
-int lfprintf(FILE *stream,const char *format, ... ) {
-    static int lineCount = 0;
-    lineCount++;
-
-    if (lineCount > 10000)
-        return 1;
-
-    va_list args;
-    va_start(args, format);
-    vfprintf(stream,format, args);
-    va_end(args);
-
-    return 0;
-}
-
-struct resource{
-    pid_t pid; //which process currently has it_value
-};
-
+//Globals
 struct PCB{
     int occupied; //Either true or false
     pid_t pid; //process id of child
@@ -63,58 +43,14 @@ struct PCB{
     int eventBlockedUntilNano;
 };
 
-int *sharedSeconds;
-int *sharedNano;
-int shmidSeconds;
-int shmidNano;
-
-
-struct PCB processTable[20];
-struct resource resourceTable[10][20];
-
-int msqid;
-
-static void myhandler(int s){
-    printf("Got signal, terminated\n");
-    for(int i = 0; i < 20; i++){
-        if(processTable[i].occupied == 1){
-            kill(processTable[i].pid, SIGTERM);
-        }
-    }
-    
-    if(msgctl(msqid, IPC_RMID, NULL) == -1){
-        perror("msgctl to get rid of queue in parent failed");
-        exit(1);
-    }
-
-    shmdt(sharedSeconds);
-    shmdt(sharedNano);
-    shmctl(shmidSeconds, IPC_RMID, NULL); 
-    shmctl(shmidNano, IPC_RMID, NULL);
-    exit(1);
-}
-
-static int setupinterrupt(void){
-    struct sigaction act;
-    act.sa_handler = myhandler;
-    act.sa_flags = 0;
-    return(sigemptyset(&act.sa_mask) || sigaction(SIGINT, &act, NULL) || sigaction(SIGPROF, &act, NULL));
-}
-
-static int setupitimer(void){
-    struct itimerval value;
-    value.it_interval.tv_sec = 5;
-    value.it_interval.tv_usec = 0;
-    value.it_value = value.it_interval;
-    return (setitimer(ITIMER_PROF, &value, NULL));
-}
-
-typedef struct msgbuffer {
+//Message struct
+typedef struct {
     long mtype;
     int intData;
     int quanta;
 } msgbuffer;
 
+//Optarg struct
 typedef struct{
     int proc;
     int simul;
@@ -123,66 +59,29 @@ typedef struct{
     char logfile[20];
 } options_t;
 
+//Shared Memory pointers
+int *sharedSeconds;
+int *sharedNano;
+int shmidSeconds;
+int shmidNano;
 
-void print_usage(const char * app){
-    fprintf(stderr, "usage: %s [-h] [-n proc] [-s simul] [-t timeLimitForChildren] [-i intervalInMsToLaunchChildren] [-f logfile]\n", app);
-    fprintf(stderr, "   proc is the total amount of children.\n");
-    fprintf(stderr, "   simul is how many children can run simultaneously.\n");
-    fprintf(stderr, "   timeLimitForChildren is the bound of time that a child process should be launched for.\n");
-    fprintf(stderr, "   intervalInMsToLaunchChildren specifies how often you should launch a child.\n");
-    fprintf(stderr, "   logfile is the input for the name of the logfile for oss to write into.\n");
-}
+//Process Table
+struct PCB processTable[20];
 
-void printProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20]){
-    printf("OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
-    printf("Process Table:\n");
-    printf("Entry     Occupied  PID       StartS    Startn\n"); 
-    for(int i = 0; i<20; i++){
-        if((processTable[i].occupied) == 1){
-            printf("%d         %d         %d         %d         %d\n", i, processTable[i].occupied, processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
-        }
-        
-    } 
-}
+//Message ID
+int msqid;
 
-void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20], FILE *fptr){
-    lfprintf(fptr, "OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
-    lfprintf(fptr, "Process Table:\n");
-    lfprintf(fptr, "Entry     Occupied  PID       StartS    Startn\n"); 
-    for(int i = 0; i<20; i++){
-        if((processTable[i].occupied) == 1){
-            lfprintf(fptr, "%d         %d         %d         %d         %d\n", i, processTable[i].occupied, processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
-        }
-        
-    } 
-}
-
-void incrementClock(int *seconds, int *nano, int increment){
-    (*nano) += increment;
-    if((*nano) >= (pow(10, 9))){
-         (*nano) -= (pow(10, 9));
-         (*seconds)++;
-    }
-}
-
-static int randomize_helper(FILE *in){
-    unsigned int seed;
-    if(!in) return -1;
-    if(fread(&seed, sizeof seed, 1, in) == 1){
-        fclose(in);
-        srand(seed);
-        return 0;
-    }
-    fclose(in);
-    return -1;
-}
-
-static int randomize(void){
-    if(!randomize_helper(fopen("/dev/urandom", "r"))) return 0;
-    if(!randomize_helper(fopen("/dev/arandom", "r"))) return 0;
-    if(!randomize_helper(fopen("/dev/random", "r"))) return 0;
-    return -1;
-}
+//Function prototypes
+int lfprintf(FILE *stream,const char *format, ... );
+static int setupinterrupt(void);
+static int setupitimer(void);
+void print_usage(const char * app);
+void printProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20]);
+void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20], FILE *fptr);
+void incrementClock(int *seconds, int *nano, int increment);
+static int randomize_helper(FILE *in);
+static int randomize(void);
+void clearResources();
 
 int main(int argc, char* argv[]){
 
@@ -207,22 +106,21 @@ int main(int argc, char* argv[]){
     }
     sharedNano=shmat(shmidNano, 0, 0);
 
+    int resourceTable[20][10];
+    int availableResources[10];
     //Set up structs defaults
    
     for(int i = 0; i < 20; i++){
-            processTable[i].occupied = 0;
-            processTable[i].pid = 0;
-            processTable[i].startSeconds = 0;
-            processTable[i].startNano = 0;
-            processTable[i].blocked = 0;
-            processTable[i].eventBlockedUntilSec = 0;
-            processTable[i].eventBlockedUntilNano = 0;
+        processTable[i].occupied = 0;
+        processTable[i].pid = 0;
+        processTable[i].startSeconds = 0;
+        processTable[i].startNano = 0;
     }
 
     //Initiate resources
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 20; j++){
-            resourceTable[i][j].pid = 0;
+    for(int i = 0; i < 20; i++){
+        for(int j = 0; j < 10; j++){
+            resourceTable[i][j] = 0;
         }
     }
 
@@ -337,9 +235,19 @@ int main(int argc, char* argv[]){
     double idle = 0;
     double waitTime = 0;
     double blockTime = 0;
+    int terminatedChild = 0;
+    int status; //Where status of terminated pid will be stored
 
     while(childrenFinishedCount < options.proc){
         //nonblocking pid
+        if(!(terminatedChild = waitpid(0, &status, WNOHANG))){
+            if(!WEXITSTATUS(status)){
+                perror("Child Aborted Abnormally");
+                exit(1);
+            }
+            
+
+        }
         //launch child
         //grant outstanding requests
         //check messages
@@ -371,5 +279,127 @@ int main(int argc, char* argv[]){
 }
 
 
+
+// print no more than 10k lines to a file
+int lfprintf(FILE *stream,const char *format, ... ) {
+    static int lineCount = 0;
+    lineCount++;
+
+    if (lineCount > 10000)
+        return 1;
+
+    va_list args;
+    va_start(args, format);
+    vfprintf(stream,format, args);
+    va_end(args);
+
+    return 0;
+}
+
+static void myhandler(int s){
+    printf("Got signal, terminated\n");
+    for(int i = 0; i < 20; i++){
+        if(processTable[i].occupied == 1){
+            kill(processTable[i].pid, SIGTERM);
+        }
+    }
+    
+    if(msgctl(msqid, IPC_RMID, NULL) == -1){
+        perror("msgctl to get rid of queue in parent failed");
+        exit(1);
+    }
+
+    shmdt(sharedSeconds);
+    shmdt(sharedNano);
+    shmctl(shmidSeconds, IPC_RMID, NULL); 
+    shmctl(shmidNano, IPC_RMID, NULL);
+    exit(1);
+}
+
+static int setupinterrupt(void){
+    struct sigaction act;
+    act.sa_handler = myhandler;
+    act.sa_flags = 0;
+    return(sigemptyset(&act.sa_mask) || sigaction(SIGINT, &act, NULL) || sigaction(SIGPROF, &act, NULL));
+}
+
+static int setupitimer(void){
+    struct itimerval value;
+    value.it_interval.tv_sec = 5;
+    value.it_interval.tv_usec = 0;
+    value.it_value = value.it_interval;
+    return (setitimer(ITIMER_PROF, &value, NULL));
+}
+
+
+void print_usage(const char * app){
+    fprintf(stderr, "usage: %s [-h] [-n proc] [-s simul] [-t timeLimitForChildren] [-i intervalInMsToLaunchChildren] [-f logfile]\n", app);
+    fprintf(stderr, "   proc is the total amount of children.\n");
+    fprintf(stderr, "   simul is how many children can run simultaneously.\n");
+    fprintf(stderr, "   timeLimitForChildren is the bound of time that a child process should be launched for.\n");
+    fprintf(stderr, "   intervalInMsToLaunchChildren specifies how often you should launch a child.\n");
+    fprintf(stderr, "   logfile is the input for the name of the logfile for oss to write into.\n");
+}
+
+void printProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20]){
+    printf("OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
+    printf("Process Table:\n");
+    printf("Entry     Occupied  PID       StartS    Startn\n"); 
+    for(int i = 0; i<20; i++){
+        if((processTable[i].occupied) == 1){
+            printf("%d         %d         %d         %d         %d\n", i, processTable[i].occupied,
+                   processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
+        }
+    } 
+}
+
+void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20], FILE *fptr){
+    lfprintf(fptr, "OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
+    lfprintf(fptr, "Process Table:\n");
+    lfprintf(fptr, "Entry     Occupied  PID       StartS    Startn\n"); 
+    for(int i = 0; i<20; i++){
+        if((processTable[i].occupied) == 1){
+            lfprintf(fptr, "%d         %d         %d         %d         %d\n", i, processTable[i].occupied, 
+                     processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
+        }
+    } 
+}
+
+void incrementClock(int *seconds, int *nano, int increment){
+    (*nano) += increment;
+    if((*nano) >= (pow(10, 9))){
+         (*nano) -= (pow(10, 9));
+         (*seconds)++;
+    }
+}
+
+
+static int randomize_helper(FILE *in){
+    unsigned int seed;
+    if(!in) return -1;
+    if(fread(&seed, sizeof seed, 1, in) == 1){
+        fclose(in);
+        srand(seed);
+        return 0;
+    }
+    fclose(in);
+    return -1;
+}
+
+static int randomize(void){
+    if(!randomize_helper(fopen("/dev/urandom", "r"))) return 0;
+    if(!randomize_helper(fopen("/dev/arandom", "r"))) return 0;
+    if(!randomize_helper(fopen("/dev/random", "r"))) return 0;
+    return -1;
+}
+
+void resourceControl(int *resourceTable, pid_t pid, int action){
+    if(action == 100){
+        for(int i = 0; i < 10){
+
+        }
+    }
+
+}
 
 
