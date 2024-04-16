@@ -339,8 +339,15 @@ int main(int argc, char* argv[]){
     double blockTime = 0;
 
     while(childrenFinishedCount < options.proc){
-        
-           
+        //nonblocking pid
+        //launch child
+        //grant outstanding requests
+        //check messages
+
+        //grant or release
+        //every half a second, output resource table and process table to logfile and screen
+        //deadlock detection algorithm
+        //if deadlock, terminate some processes until deadlock is gone
         
     }
     //Remove message queues 
