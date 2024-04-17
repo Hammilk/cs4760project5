@@ -23,7 +23,6 @@
 #include<stdarg.h>
 #include<errno.h>
 
-
 //Macros
 #define SHMKEY1 2031535
 #define SHMKEY2 2031536
@@ -78,6 +77,8 @@ struct Queue{
 };
 
 //Function prototypes
+int deadlock(const int *available, const int m, const int n, const int *request, const int *allocated);
+int req_lt_avail(const int *req, const int *avail, const int pnum, const int num_res);
 void printResourceTable(int resourceTable[20][10]);
 int addProcessTable(struct PCB processTable[20], pid_t pid);
 struct QNode* newNode(int k);
@@ -185,7 +186,7 @@ int main(int argc, char* argv[]){
     key_t key;
     msgbuffer buff;
     buff.mtype = 1;
-    buff.quanta = 0;
+    buff.resource = 0;
 
     //Set up timers
     if(setupinterrupt() == -1){
@@ -321,6 +322,7 @@ int main(int argc, char* argv[]){
         }
 
         //deadlock detection algorithm
+        
         //if deadlock, terminate some processes until deadlock is gone
         
     }
@@ -347,15 +349,12 @@ int main(int argc, char* argv[]){
 int lfprintf(FILE *stream,const char *format, ... ) {
     static int lineCount = 0;
     lineCount++;
-
     if (lineCount > 10000)
         return 1;
-
     va_list args;
     va_start(args, format);
     vfprintf(stream,format, args);
     va_end(args);
-
     return 0;
 }
 
@@ -366,12 +365,10 @@ static void myhandler(int s){
             kill(processTable[i].pid, SIGTERM);
         }
     }
-    
     if(msgctl(msqid, IPC_RMID, NULL) == -1){
         perror("msgctl to get rid of queue in parent failed");
         exit(1);
     }
-
     shmdt(sharedSeconds);
     shmdt(sharedNano);
     shmctl(shmidSeconds, IPC_RMID, NULL); 
@@ -441,7 +438,6 @@ void printResourceTable(int resourceTable[20][10]){
     }
 }
 
-
 void incrementClock(int *seconds, int *nano, int increment){
     (*nano) += increment;
     if((*nano) >= (pow(10, 9))){
@@ -449,7 +445,6 @@ void incrementClock(int *seconds, int *nano, int increment){
          (*seconds)++;
     }
 }
-
 
 static int randomize_helper(FILE *in){
     unsigned int seed;
@@ -530,9 +525,6 @@ int addProcessTable(struct PCB processTable[20], pid_t pid){
     return -1;
 }
 
-
-
-
 //Create new node function
 struct QNode* newNode(int k){
     struct QNode* temp = (struct QNode*)malloc(sizeof(struct QNode));
@@ -577,6 +569,64 @@ void deQueue(struct Queue* q)
     }
     free(temp);
 }
+
+int deadlock(const int *available, const int m, const int n, const int *request, const int *allocated){
+    int work[m];
+    int finish[n];
+
+    for(int i = 0; i < m; i++){
+        work[i] = available[i];
+    }
+    for(int i = 0; i < n; i++){
+        finish[i] = 0;
+    }
+
+    int p = 0;
+    for(; p < n; p++){
+        if(finish[p]){
+            continue;
+        }
+        if(req_lt_avail(request, work, p, m)){
+            finish[p] = 1;
+            for(int i = 0; i < m; i++){
+                work[i] += allocated[p*m+i];
+            }
+            p = -1;
+        }
+    }
+    for(p = 0; p < n; p++){
+        if(!finish[p]){
+            break;
+        }
+    }
+    return (p != n);
+}
+
+int req_lt_avail(const int *req, const int *avail, const int pnum, const int num_res){
+    int i = 0;
+    for(; i < num_res; i++){
+        if(req[pnum*num_res+i] > avail[i]){
+            break;
+        }
+    }
+    return (i == num_res);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
