@@ -6,9 +6,7 @@
  *
  */
 
-#define _POSIX_C_SOURCE 199309L
-
-
+#include <time.h>
 #include<stdio.h>
 #include<sys/types.h>
 #include<stdlib.h>
@@ -31,7 +29,8 @@
 #define BUFF_SZ sizeof (int)
 #define MAXDIGITS 3
 #define PERMS 0644
- 
+#define BOUND 20
+
 //Globals
 struct PCB{
     int occupied; //Either true or false
@@ -39,8 +38,6 @@ struct PCB{
     int startSeconds; //time when it was forked
     int startNano; //time when it was forked
     int blocked;
-    int eventBlockedUntilSec;
-    int eventBlockedUntilNano;
 };
 
 //Message struct
@@ -54,7 +51,6 @@ typedef struct {
 typedef struct{
     int proc;
     int simul;
-    int timelimit;
     int interval;
     char logfile[20];
 } options_t;
@@ -71,7 +67,21 @@ struct PCB processTable[20];
 //Message ID
 int msqid;
 
+struct QNode{
+    int key;
+    struct QNode* next;
+};
+
+struct Queue{
+    struct QNode *front, *rear;
+};
+
 //Function prototypes
+int addProcessTable(struct PCB processTable[20], pid_t pid);
+struct QNode* newNode(int k);
+struct Queue* createQueue();
+void enQueue(struct Queue* q, int k);
+void deQueue(struct Queue* q);
 int lfprintf(FILE *stream,const char *format, ... );
 static int setupinterrupt(void);
 static int setupitimer(void);
@@ -83,7 +93,7 @@ static int randomize_helper(FILE *in);
 static int randomize(void);
 void clearResources();
 void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource);
-
+int clearProcessTable(struct PCB processTable[20], pid_t pid);
 
 int main(int argc, char* argv[]){
 
@@ -108,10 +118,19 @@ int main(int argc, char* argv[]){
     }
     sharedNano=shmat(shmidNano, 0, 0);
 
+    //Set up resources
     int resourceTable[20][10];
+    for(int i = 0; i < 20; i++){
+        for(int j = 0; j < 10; j++){
+            resourceTable[i][j] = 0;
+        }
+    }
     int availableResources[10];
+    for(int i = 0; i < 10; i++){
+        availableResources[i] = 20;
+    }
+
     //Set up structs defaults
-   
     for(int i = 0; i < 20; i++){
         processTable[i].occupied = 0;
         processTable[i].pid = 0;
@@ -119,25 +138,15 @@ int main(int argc, char* argv[]){
         processTable[i].startNano = 0;
     }
 
-    //Initiate resources
-    for(int i = 0; i < 20; i++){
-        for(int j = 0; j < 10; j++){
-            resourceTable[i][j] = 0;
-        }
-    }
-
     //Set up user parameters
     options_t options;
     options.proc = 2; //n
     options.simul = 2; //s
-    options.timelimit = 50000000; //t
     options.interval = 1; //i
     strcpy(options.logfile, "msgq.txt"); //f
 
     //Set up user input
-
-    const char optstr[] = "hn:s:t:i:f:";
-
+    const char optstr[] = "hn:s:i:f:";
     char opt;
     while((opt = getopt(argc, argv, optstr))!= -1){
         switch(opt){
@@ -149,9 +158,6 @@ int main(int argc, char* argv[]){
                 break;
             case 's':
                 options.simul = atoi(optarg);
-                break;
-            case 't':
-                options.timelimit = atoi(optarg);
                 break;
             case 'i':
                 options.interval = atoi(optarg);
@@ -168,7 +174,6 @@ int main(int argc, char* argv[]){
    
     //Set up variables;
     pid_t pid;
-     
     int seconds = 0;
     int nano = 0;
     *sharedSeconds = seconds;
@@ -179,7 +184,6 @@ int main(int argc, char* argv[]){
     msgbuffer buff;
     buff.mtype = 1;
     buff.quanta = 0;
-
 
     //Set up timers
     if(setupinterrupt() == -1){
@@ -196,16 +200,12 @@ int main(int argc, char* argv[]){
     strcpy(commandString, "touch "); 
     strcat(commandString, options.logfile);
     system(commandString);
-
     FILE *fptr;
     fptr = fopen(options.logfile, "w");
-   
-
     if(fptr == NULL){
         fprintf(stderr, "Error: file has not opened.\n");
         exit(0);
     }
-
 
     //get a key for message queue
     if((key = ftok("oss.c", 1)) == -1){
@@ -220,27 +220,16 @@ int main(int argc, char* argv[]){
     }
 
     //Variables
-    int childrenLaunched = 0; 
     int simulCount = 0;
-    int childrenFinishedCount = 0;
-    int currentChild = 0;
-    int currentQueue = 0;
-    int nextIntervalSeconds;
-    int nextIntervalNano;
-    int launchFlag = 0;
-    int terminationPercent = 2;
-    int blockPercent = 2;
-    int timeSlice = 0;
-    int readyCount = 0; //Counts how many processes are ready to go
-
-    //Statistic Variable
-    double idle = 0;
-    double waitTime = 0;
-    double blockTime = 0;
-    int terminatedChild = 0;
+    int childrenFinishedCount;
+    int nextIntervalSecond = 0;
+    int nextIntervalNano = 0;
+    int childLaunchedCount = 0;
+    pid_t terminatedChild = 0;
     int status; //Where status of terminated pid will be stored
 
     while(childrenFinishedCount < options.proc){
+        pid_t child = 0;
         //nonblocking pid
         if(!(terminatedChild = waitpid(0, &status, WNOHANG))){
             if(!WEXITSTATUS(status)){
@@ -249,12 +238,41 @@ int main(int argc, char* argv[]){
             }
             //if terminated child clear resources and process table entry
             resourceControl(resourceTable, availableResources, terminatedChild, -100);
-
-            
-
+            if(clearProcessTable(processTable, terminatedChild) == -1){
+                perror("Process Clear Aborted Abnormally");
+                exit(1);
+            }
+            simulCount--;
+            childrenFinishedCount++;
         }
         //launch child
+        if(childLaunchedCount < options.proc && 
+            simulCount < options.simul && 
+            (*sharedSeconds > nextIntervalSecond || *sharedSeconds == nextIntervalNano && *sharedNano > nextIntervalSecond) &&
+            (child = fork()) > 0){
+                        
+            //Child Launch Section
+            char passedBound[MAXDIGITS];
+            sprintf(passedBound, "%d", BOUND);
+
+            char * args[] = {"./user_proc.c", passedBound};
+            
+            //Run Executable
+            execlp(args[0], args[0], args[1], NULL);
+            printf("Exec failed\n");
+            exit(1);
+        }
+        if(child > 0){
+            if(addProcessTable(processTable, child) == -1){
+                perror("Add process table failed");
+                exit(1);
+            }
+            simulCount++;
+            childLaunchedCount++;
+        }
+            
         //grant outstanding requests
+
         //check messages
 
         //grant or release
@@ -282,9 +300,6 @@ int main(int argc, char* argv[]){
     return 0;
     
 }
-
-
-
 // print no more than 10k lines to a file
 int lfprintf(FILE *stream,const char *format, ... ) {
     static int lineCount = 0;
@@ -335,7 +350,6 @@ static int setupitimer(void){
     value.it_value = value.it_interval;
     return (setitimer(ITIMER_PROF, &value, NULL));
 }
-
 
 void print_usage(const char * app){
     fprintf(stderr, "usage: %s [-h] [-n proc] [-s simul] [-t timeLimitForChildren] [-i intervalInMsToLaunchChildren] [-f logfile]\n", app);
@@ -424,5 +438,79 @@ void resourceControl(int resourceTable[20][10], int *availableResources, pid_t p
         exit(1);
     }
 }
+
+int clearProcessTable(struct PCB processTable[20], pid_t pid){
+    for(int i = 0; i < 20; i++){
+        if(processTable[i].pid == pid){
+            processTable[i].occupied = 0;
+            processTable[i].pid = 0;
+            processTable[i].startSeconds = 0;
+            processTable[i].startNano = 0;
+            processTable[i].blocked = 0;
+            return 0; 
+        }
+    }
+    return -1;
+}
+
+int addProcessTable(struct PCB processTable[20], pid_t pid){
+    for(int i = 0; i < 20; i++){
+        if(!processTable[i].occupied){
+            processTable[i].occupied = 1;
+            processTable[i].pid = pid;
+            processTable[i].startNano = *sharedNano;
+            processTable[i].startSeconds = *sharedSeconds;
+            return 0;
+        }
+    }
+    return -1;
+}
+
+//Create new node function
+struct QNode* newNode(int k){
+    struct QNode* temp = (struct QNode*)malloc(sizeof(struct QNode));
+    temp->key = k;
+    temp->next = NULL;
+    return temp;
+}
+
+//Create Queue function
+struct Queue* createQueue(){
+    struct Queue* q = (struct Queue*)malloc(sizeof(struct Queue));
+    q->front = q->rear = NULL;
+    return q;
+}
+
+//The function to add a key k to q
+void enQueue(struct Queue* q, int k){
+    struct QNode* temp = newNode(k);
+
+    if(q->rear == NULL){
+        q->front = q->rear = temp;
+        return;
+    }
+
+    q->rear->next = temp;
+    q->rear = temp;
+}
+
+//Function to remove a key from given queue q
+void deQueue(struct Queue* q)
+{
+    if(q->front == NULL){
+        return;
+    }
+
+    struct QNode* temp = q->front;
+
+    q->front = q->front->next;
+
+    if(q->front == NULL){
+        q->rear = NULL;
+    }
+    free(temp);
+}
+
+
 
 
