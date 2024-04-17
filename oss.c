@@ -78,6 +78,7 @@ struct Queue{
 };
 
 //Function prototypes
+void printResourceTable(int resourceTable[20][10]);
 int addProcessTable(struct PCB processTable[20], pid_t pid);
 struct QNode* newNode(int k);
 struct Queue* createQueue();
@@ -234,6 +235,7 @@ int main(int argc, char* argv[]){
     pid_t terminatedChild = 0;
     int status; //Where status of terminated pid will be stored
     int blockedCount = 0;
+    int altFlag = 0;
 
     while(childrenFinishedCount < options.proc){
         pid_t child = 0;
@@ -305,8 +307,18 @@ int main(int argc, char* argv[]){
             }
         }
         //every half a second, output resource table and process table to logfile and screen
-        
-
+        if(altFlag == 0 && (*sharedNano) > (pow(10, 9) / 2)){
+            altFlag = 1;
+            printProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable);
+            fprintProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable, fptr);
+            printResourceTable(resourceTable);
+        }
+        if(altFlag == 1 && (*sharedNano) < (pow(10, 9) / 2)){
+            altFlag = 0;
+            printProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable);
+            fprintProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable, fptr);
+            printResourceTable(resourceTable);
+        }
 
         //deadlock detection algorithm
         //if deadlock, terminate some processes until deadlock is gone
@@ -414,6 +426,21 @@ void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB pro
         }
     } 
 }
+
+void printResourceTable(int resourceTable[20][10]){
+    printf("  ");
+    for(int i = 0; i < 10; i++){
+        printf("R%d  ", i);
+    }
+    printf("\n");
+    for(int i = 0; i < 20; i++){
+        printf("P%d  ", i);
+        for(int j = 0; j < 10; j++){
+            printf("%d  ", resourceTable[i][j]);
+        }
+    }
+}
+
 
 void incrementClock(int *seconds, int *nano, int increment){
     (*nano) += increment;
