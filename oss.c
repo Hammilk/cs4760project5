@@ -1,12 +1,10 @@
 /*
- *
- *Project Title: Project 5 - Multilevel Feedback Queues
+ *Project Title: Project 5 - Resource Management
  *Author: David Pham
  * 3/7/2024
- *
  */
 
-#include <time.h>
+#include<time.h>
 #include<stdio.h>
 #include<sys/types.h>
 #include<stdlib.h>
@@ -26,7 +24,6 @@
 //Macros
 #define SHMKEY1 2031535
 #define SHMKEY2 2031536
-#define SHMKEY3 2031537
 #define BUFF_SZ sizeof (int)
 #define MAXDIGITS 3
 #define PERMS 0644
@@ -331,7 +328,6 @@ int main(int argc, char* argv[]){
         perror("msgctl to get rid of queue in parent failed");
         exit(1);
     }
-    
     
     //Remove shared memory
     shmdt(sharedSeconds);
