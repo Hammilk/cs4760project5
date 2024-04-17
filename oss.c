@@ -21,6 +21,8 @@
 #include<string.h>
 #include<sys/msg.h>
 #include<stdarg.h>
+#include<errno.h>
+
 
 //Macros
 #define SHMKEY1 2031535
@@ -43,8 +45,7 @@ struct PCB{
 //Message struct
 typedef struct {
     long mtype;
-    int intData;
-    int quanta;
+    int resource;
 } msgbuffer;
 
 //Optarg struct
@@ -92,7 +93,7 @@ void incrementClock(int *seconds, int *nano, int increment);
 static int randomize_helper(FILE *in);
 static int randomize(void);
 void clearResources();
-void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource);
+void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff);
 int clearProcessTable(struct PCB processTable[20], pid_t pid);
 
 int main(int argc, char* argv[]){
@@ -218,6 +219,11 @@ int main(int argc, char* argv[]){
         perror("msgget in parent");
         exit(1);
     }
+    
+    struct Queue *blockedQueue[10];
+    for(int i = 0; i < 10; i++){
+        blockedQueue[i] = createQueue();
+    }
 
     //Variables
     int simulCount = 0;
@@ -227,6 +233,7 @@ int main(int argc, char* argv[]){
     int childLaunchedCount = 0;
     pid_t terminatedChild = 0;
     int status; //Where status of terminated pid will be stored
+    int blockedCount = 0;
 
     while(childrenFinishedCount < options.proc){
         pid_t child = 0;
@@ -237,7 +244,7 @@ int main(int argc, char* argv[]){
                 exit(1);
             }
             //if terminated child clear resources and process table entry
-            resourceControl(resourceTable, availableResources, terminatedChild, -100);
+            resourceControl(resourceTable, availableResources, terminatedChild, -100, buff);
             if(clearProcessTable(processTable, terminatedChild) == -1){
                 perror("Process Clear Aborted Abnormally");
                 exit(1);
@@ -272,11 +279,35 @@ int main(int argc, char* argv[]){
         }
             
         //grant outstanding requests
+        if(blockedCount > 0){
+            for(int i = 0; i < 10; i++){
+                while(availableResources[i] > 0 && (blockedQueue[i]->front) != NULL){
+                    resourceControl(resourceTable, availableResources, processTable[blockedQueue[i]->front->key].pid, i, buff);
+                    blockedCount--;
+                }
+            }
+        }
 
-        //check messages
-
-        //grant or release
+        //check messages and grant/release resource
+        for(int i = 0; i < 20; i++){
+            if(msgrcv(msqid, &buff, sizeof(buff) - sizeof(long), 0, IPC_NOWAIT)==-1){
+                if(errno == ENOMSG){
+                    printf("Got no message so maybe do nothing?\n");
+                }
+                else{
+                    printf("Got an error from msgrcv\n");
+                    perror("msgrcv");
+                    exit(1);
+                }
+            }
+            else{
+                resourceControl(resourceTable, availableResources, processTable[i].pid, buff.resource, buff); //Grant or release resource    
+            }
+        }
         //every half a second, output resource table and process table to logfile and screen
+        
+
+
         //deadlock detection algorithm
         //if deadlock, terminate some processes until deadlock is gone
         
@@ -412,7 +443,7 @@ static int randomize(void){
     return -1;
 }
 
-void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource){
+void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff){
     int index = 0;
     for(int i = 0; i < 20; i++){
         if(processTable[i].pid == pid){
@@ -425,13 +456,19 @@ void resourceControl(int resourceTable[20][10], int *availableResources, pid_t p
             resourceTable[index][i] = 0;
         }
     }
-    if(resource < 0){ //When processes and release
+    if(resource < 0){ //Release resource to process
         availableResources[-resource]++;
         resourceTable[index][-resource]--;
     }
-    else if(resource > 0){
+    else if(resource > 0){ //grant resource to process
         availableResources[resource]--;
         resourceTable[index][resource]++;
+        buff.mtype = pid;
+        buff.resource = resource;
+        if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0)){
+            perror("Msgsend to child failed");
+            exit(1);
+        }
     }
     else{
         perror("Resource error");
@@ -465,6 +502,9 @@ int addProcessTable(struct PCB processTable[20], pid_t pid){
     }
     return -1;
 }
+
+
+
 
 //Create new node function
 struct QNode* newNode(int k){
