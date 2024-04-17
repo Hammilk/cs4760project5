@@ -1,0 +1,2 @@
+Process 237344 has launched
+Buff Resource: 3

@@ -12,8 +12,8 @@
 #define SHMKEY2 2031536
 #define BUFF_SZ sizeof(int)
 #define PERMS 0644
-#define reqChance 80 //defines the chance that the process makes a request
-#define termChance 2 //defines the chance that a process terminates within a loop
+#define reqChance 90 //defines the chance that the process makes a request
+#define termChance 1 //defines the chance that a process terminates within a loop
 
 //Randomizer Section
 
@@ -106,43 +106,46 @@ int main(int argc, char** argv){ //at some point, add bound parameter
     //Set up control for work loop
     int termFlag = 0;
 
+    int resourceCount = 0;
+
     //Work section
     while(!termFlag){
         //check if time to request
-        if(requestSecond > *sharedSeconds || (requestSecond == *sharedSeconds) && (requestNano > *sharedNano)){
+        if(*sharedSeconds > requestSecond || (requestSecond == *sharedSeconds) && (*sharedNano > requestNano)){
             //Determine whether to request or release 
             int requestGenerate = rand() % 101;
-            if(requestGenerate > reqChance){ //if requestGenerate is higher than reqchance, request
+            if(resourceCount == 0 || requestGenerate > reqChance){ //if requestGenerate is higher than reqchance, request
                 buff.resource = rand() % 10;
                 while(resourceArray[buff.resource] > 20){
+                    buff.mtype = getppid();
                     buff.resource = rand() % 10;
                 }
+                printf("Requesting for Resource %d\n", buff.resource);
             }
             else{ //Release section
                 buff.resource = -(rand() % 10);
                 while(resourceArray[-buff.resource] < 0){ //Checks to make sure child doesn't request more processes then what exits
+                    buff.mtype = getppid();
                     buff.resource = -(rand() % 10);
                 }
+                printf("Releasing resource %d\n", -buff.resource);
             }
             //Send request/release
             if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0) == -1){
                 perror("msgsnd to parent failed\n");
                 exit(1);
             }
-            if(buff.resource > 0){
-                printf("Requesting for resource %d\n", buff.resource);
-            }
-            else{
-                printf("Releasing resource %d\n", -buff.resource);
-            }
+            
             //If sent request message, blocking recieved until child receives resource
             if(buff.resource > -1){
-                if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0)){
+                printf("start blocking\n");
+                if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0) == -1){
                     perror("msgsnd to parent failed");
                     exit(1);
                 }
                 //Increment resource in resource array to track
                 resourceArray[buff.resource]++;
+                resourceCount++;
                 //Reset bounds 
                 bound = rand() % (atoi(argv[1]) + 1);
                 requestNano = sysClockNano + bound;
@@ -155,6 +158,7 @@ int main(int argc, char** argv){ //at some point, add bound parameter
             else{
                 //Decrement to indicate releasing resource
                 resourceArray[buff.resource]--;
+                resourceCount--;
             }
         }     
 
@@ -164,4 +168,5 @@ int main(int argc, char** argv){ //at some point, add bound parameter
             termFlag = 1;
         }
     }
+    printf("I AM TERMINATING\n");
 }
