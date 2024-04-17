@@ -1,6 +1,6 @@
 /*
  *
- *Project Title: Project 4 - Multilevel Feedback Queues
+ *Project Title: Project 5 - Multilevel Feedback Queues
  *Author: David Pham
  * 3/7/2024
  *
@@ -82,6 +82,8 @@ void incrementClock(int *seconds, int *nano, int increment);
 static int randomize_helper(FILE *in);
 static int randomize(void);
 void clearResources();
+void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource);
+
 
 int main(int argc, char* argv[]){
 
@@ -245,6 +247,9 @@ int main(int argc, char* argv[]){
                 perror("Child Aborted Abnormally");
                 exit(1);
             }
+            //if terminated child clear resources and process table entry
+            resourceControl(resourceTable, availableResources, terminatedChild, -100);
+
             
 
         }
@@ -393,13 +398,31 @@ static int randomize(void){
     return -1;
 }
 
-void resourceControl(int *resourceTable, pid_t pid, int action){
-    if(action == 100){
-        for(int i = 0; i < 10){
-
+void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource){
+    int index = 0;
+    for(int i = 0; i < 20; i++){
+        if(processTable[i].pid == pid){
+            index = i;
         }
     }
-
+    if(resource == -100){ //When process terminates and releases all resources
+        for(int i = 0; i < 10; i++){
+            availableResources[i] += resourceTable[index][i];
+            resourceTable[index][i] = 0;
+        }
+    }
+    if(resource < 0){ //When processes and release
+        availableResources[-resource]++;
+        resourceTable[index][-resource]--;
+    }
+    else if(resource > 0){
+        availableResources[resource]--;
+        resourceTable[index][resource]++;
+    }
+    else{
+        perror("Resource error");
+        exit(1);
+    }
 }
 
 
