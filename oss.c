@@ -96,7 +96,6 @@ void resourceControl(int allocatedTable[20][10], int *availableResources, pid_t 
 int clearProcessTable(struct PCB processTable[20], pid_t pid);
 
 int main(int argc, char* argv[]){
-
     //Seed random
     if(randomize()){
         fprintf(stderr, "Warning: No source for randomness.\n");
@@ -317,6 +316,7 @@ int main(int argc, char* argv[]){
                 }
             }
             else{
+                printf("Received message from process: %li\n", buff.mtype);
                 if(buff.resource > 0 && availableResources[buff.resource] > 0){
                     resourceControl(allocatedTable, availableResources, processTable[i].pid, buff.resource, buff); 
                 }
@@ -517,6 +517,9 @@ void resourceControl(int allocatedTable[20][10], int *availableResources, pid_t 
         if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0)){
             perror("Msgsend to child failed");
             exit(1);
+        }
+        else{
+            printf("Sent message to process %li\n", buff.mtype);
         }
     }
     else{

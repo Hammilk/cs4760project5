@@ -129,6 +129,12 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                 perror("msgsnd to parent failed\n");
                 exit(1);
             }
+            if(buff.resource > 0){
+                printf("Requesting for resource %d\n", buff.resource);
+            }
+            else{
+                printf("Releasing resource %d\n", -buff.resource);
+            }
             //If sent request message, blocking recieved until child receives resource
             if(buff.resource > -1){
                 if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0)){
