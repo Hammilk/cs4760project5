@@ -76,7 +76,7 @@ struct Queue{
 //Function prototypes
 int deadlock(const int *available, const int m, const int n, const int *request, const int *allocated);
 int req_lt_avail(const int *req, const int *avail, const int pnum, const int num_res);
-void printResourceTable(int resourceTable[20][10]);
+void printResourceTable(int allocatedTable[20][10]);
 int addProcessTable(struct PCB processTable[20], pid_t pid);
 struct QNode* newNode(int k);
 struct Queue* createQueue();
@@ -92,7 +92,7 @@ void incrementClock(int *seconds, int *nano, int increment);
 static int randomize_helper(FILE *in);
 static int randomize(void);
 void clearResources();
-void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff);
+void resourceControl(int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff);
 int clearProcessTable(struct PCB processTable[20], pid_t pid);
 
 int main(int argc, char* argv[]){
@@ -119,15 +119,22 @@ int main(int argc, char* argv[]){
     sharedNano=shmat(shmidNano, 0, 0);
 
     //Set up resources
-    int resourceTable[20][10];
+    int allocatedTable[20][10];
     for(int i = 0; i < 20; i++){
         for(int j = 0; j < 10; j++){
-            resourceTable[i][j] = 0;
+            allocatedTable[i][j] = 0;
         }
     }
     int availableResources[10];
     for(int i = 0; i < 10; i++){
         availableResources[i] = 20;
+    }
+    
+    int requestTable[20][10];
+    for(int i = 0; i < 20; i++){
+        for(int j = 0; j < 10; j++){
+            requestTable[i][j] = 0;
+        }
     }
 
     //Set up structs defaults
@@ -234,6 +241,7 @@ int main(int argc, char* argv[]){
     int status; //Where status of terminated pid will be stored
     int blockedCount = 0;
     int altFlag = 0;
+    int checkSecond = 0;
 
     while(childrenFinishedCount < options.proc){
         pid_t child = 0;
@@ -244,7 +252,7 @@ int main(int argc, char* argv[]){
                 exit(1);
             }
             //if terminated child clear resources and process table entry
-            resourceControl(resourceTable, availableResources, terminatedChild, -100, buff);
+            resourceControl(allocatedTable, availableResources, terminatedChild, -100, buff);
             if(clearProcessTable(processTable, terminatedChild) == -1){
                 perror("Process Clear Aborted Abnormally");
                 exit(1);
@@ -282,8 +290,16 @@ int main(int argc, char* argv[]){
         if(blockedCount > 0){
             for(int i = 0; i < 10; i++){
                 while(availableResources[i] > 0 && (blockedQueue[i]->front) != NULL){
-                    resourceControl(resourceTable, availableResources, processTable[blockedQueue[i]->front->key].pid, i, buff);
-                    blockedCount--;
+                    if(processTable[blockedQueue[i]->front->key].occupied){
+                        resourceControl(allocatedTable, availableResources, processTable[blockedQueue[i]->front->key].pid, i, buff);
+                        blockedCount--;
+                        (requestTable[processTable[blockedQueue[i]->front->key].pid][i])--;
+                        deQueue(blockedQueue[i]);
+                    }
+                    else{
+                        blockedCount--;
+                        deQueue(blockedQueue[i]);
+                    }
                 }
             }
         }
@@ -301,7 +317,17 @@ int main(int argc, char* argv[]){
                 }
             }
             else{
-                resourceControl(resourceTable, availableResources, processTable[i].pid, buff.resource, buff); //Grant or release resource    
+                if(buff.resource > 0 && availableResources[buff.resource] > 0){
+                    resourceControl(allocatedTable, availableResources, processTable[i].pid, buff.resource, buff); 
+                }
+                else if(buff.resource > 0){
+                    enQueue(blockedQueue[buff.resource], i);
+                    (requestTable[i][buff.resource])++;
+                }
+                else{
+                    resourceControl(allocatedTable, availableResources, processTable[i].pid, buff.resource, buff);
+                }
+                //Grant or release resource    
             }
         }
         //every half a second, output resource table and process table to logfile and screen
@@ -309,19 +335,25 @@ int main(int argc, char* argv[]){
             altFlag = 1;
             printProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable);
             fprintProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable, fptr);
-            printResourceTable(resourceTable);
+            printResourceTable(allocatedTable);
         }
         if(altFlag == 1 && (*sharedNano) < (pow(10, 9) / 2)){
             altFlag = 0;
             printProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable);
             fprintProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable, fptr);
-            printResourceTable(resourceTable);
+            printResourceTable(allocatedTable);
         }
 
         //deadlock detection algorithm
-        
-        //if deadlock, terminate some processes until deadlock is gone
-        
+        if(*sharedSeconds > checkSecond){
+            int index = -1;
+            while(deadlock(availableResources, 20, 10, *requestTable, *allocatedTable)){
+                if(blockedQueue[index = ((index+1) % 10)]->front != NULL){
+                    clearProcessTable(processTable, blockedQueue[index]->front->key); 
+                }
+            }
+            checkSecond = (*sharedSeconds) + 1;
+        }
     }
     //Remove message queues 
     if(msgctl(msqid, IPC_RMID, NULL) == -1){
@@ -334,7 +366,6 @@ int main(int argc, char* argv[]){
     shmdt(sharedNano);
     shmctl(shmidSeconds, IPC_RMID, NULL);
     shmctl(shmidNano, IPC_RMID, NULL);
-    
 
     //Close file
     fclose(fptr);
@@ -420,7 +451,7 @@ void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB pro
     } 
 }
 
-void printResourceTable(int resourceTable[20][10]){
+void printResourceTable(int allocatedTable[20][10]){
     printf("  ");
     for(int i = 0; i < 10; i++){
         printf("R%d  ", i);
@@ -429,7 +460,7 @@ void printResourceTable(int resourceTable[20][10]){
     for(int i = 0; i < 20; i++){
         printf("P%d  ", i);
         for(int j = 0; j < 10; j++){
-            printf("%d  ", resourceTable[i][j]);
+            printf("%d  ", allocatedTable[i][j]);
         }
     }
 }
@@ -461,7 +492,7 @@ static int randomize(void){
     return -1;
 }
 
-void resourceControl(int resourceTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff){
+void resourceControl(int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff){
     int index = 0;
     for(int i = 0; i < 20; i++){
         if(processTable[i].pid == pid){
@@ -470,17 +501,17 @@ void resourceControl(int resourceTable[20][10], int *availableResources, pid_t p
     }
     if(resource == -100){ //When process terminates and releases all resources
         for(int i = 0; i < 10; i++){
-            availableResources[i] += resourceTable[index][i];
-            resourceTable[index][i] = 0;
+            availableResources[i] += allocatedTable[index][i];
+            allocatedTable[index][i] = 0;
         }
     }
     if(resource < 0){ //Release resource to process
         availableResources[-resource]++;
-        resourceTable[index][-resource]--;
+        allocatedTable[index][-resource]--;
     }
     else if(resource > 0){ //grant resource to process
         availableResources[resource]--;
-        resourceTable[index][resource]++;
+        allocatedTable[index][resource]++;
         buff.mtype = pid;
         buff.resource = resource;
         if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0)){
