@@ -129,7 +129,7 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                     buff.resource = rand() % 10;
                     buff.action = 1; 
                 }
-                printf("Child requesting for Resource %d\n", buff.resource);
+                printf("Child process: %d requesting for Resource %d\n",getpid(), buff.resource);
             }
             else{ //Release section
                 buff.resource = (rand() % 10);

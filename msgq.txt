@@ -1,522 +1,729 @@
-Process 11431 has launched at 0 seconds and 5000 nano
-Process 11432 has launched at 0 seconds and 10000 nano
-Process 11433 has launched at 0 seconds and 15000 nano
-Process 11434 has launched at 0 seconds and 20000 nano
-Process 11435 has launched at 0 seconds and 25000 nano
-Received request for resource 3 from process: 11434
-Grant resource 3 for process 11434
-Sent message to process 11434
-Received request for resource 6 from process: 11431
-Grant resource 6 for process 11431
-Sent message to process 11431
-Received request for resource 6 from process: 11434
-Grant resource 6 for process 11434
-Sent message to process 11434
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 2 from process: 11431
-Grant resource 2 for process 11431
-Sent message to process 11431
-Received request from process 11434 to release resource 8
-Process 11434 releases resource: 8
-Received request for resource 3 from process: 11431
-Grant resource 3 for process 11431
-Sent message to process 11431
-Received request for resource 3 from process: 11434
-Grant resource 3 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11432
-Grant resource 4 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11431
-Grant resource 1 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 7 from process: 11432
-Grant resource 7 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11431
-Grant resource 1 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 5 from process: 11432
-Grant resource 5 for process 11432
-Sent message to process 11432
-Received request for resource 9 from process: 11431
-Grant resource 9 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 3 from process: 11433
-Grant resource 3 for process 11433
-Sent message to process 11433
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11431
-Grant resource 1 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11434
-Grant resource 7 for process 11434
-Sent message to process 11434
-Received request for resource 0 from process: 11432
-Grant resource 0 for process 11432
-Sent message to process 11432
-Received request for resource 3 from process: 11431
-Grant resource 3 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 9 from process: 11435
-Grant resource 9 for process 11435
-Sent message to process 11435
-Received request for resource 8 from process: 11432
-Grant resource 8 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11433
-Grant resource 1 for process 11433
-Sent message to process 11433
-Received request for resource 9 from process: 11431
-Grant resource 9 for process 11431
-Sent message to process 11431
-Received request for resource 1 from process: 11434
-Grant resource 1 for process 11434
-Sent message to process 11434
-Received request for resource 5 from process: 11435
-Grant resource 5 for process 11435
-Sent message to process 11435
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 4 from process: 11433
-Grant resource 4 for process 11433
-Sent message to process 11433
-Received request for resource 9 from process: 11431
-Grant resource 9 for process 11431
-Sent message to process 11431
-Received request for resource 1 from process: 11434
-Grant resource 1 for process 11434
-Sent message to process 11434
-Received request for resource 6 from process: 11432
-Grant resource 6 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11433
-Grant resource 1 for process 11433
-Sent message to process 11433
-Received request for resource 0 from process: 11431
-Grant resource 0 for process 11431
-Sent message to process 11431
-Received request for resource 0 from process: 11435
-Grant resource 0 for process 11435
-Sent message to process 11435
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 5 from process: 11433
-Grant resource 5 for process 11433
-Sent message to process 11433
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 9 from process: 11433
-Grant resource 9 for process 11433
-Sent message to process 11433
-Received request for resource 8 from process: 11431
-Grant resource 8 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11435
-Grant resource 8 for process 11435
-Sent message to process 11435
-Received request for resource 1 from process: 11434
-Grant resource 1 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11431
-Grant resource 4 for process 11431
-Sent message to process 11431
-Received request for resource 3 from process: 11433
-Grant resource 3 for process 11433
-Sent message to process 11433
-Received request for resource 4 from process: 11435
-Grant resource 4 for process 11435
-Sent message to process 11435
-Received request for resource 5 from process: 11434
-Grant resource 5 for process 11434
-Sent message to process 11434
-Received request for resource 7 from process: 11432
-Grant resource 7 for process 11432
-Sent message to process 11432
-Received request from process 11433 to release resource 1
-Process 11433 releases resource: 1
-Received request for resource 7 from process: 11433
-Grant resource 7 for process 11433
-Sent message to process 11433
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 0 from process: 11434
-Grant resource 0 for process 11434
-Sent message to process 11434
-Received request for resource 5 from process: 11435
-Grant resource 5 for process 11435
-Sent message to process 11435
-Received request for resource 8 from process: 11432
-Grant resource 8 for process 11432
-Sent message to process 11432
-Received request for resource 5 from process: 11433
-Grant resource 5 for process 11433
-Sent message to process 11433
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 2 from process: 11435
-Grant resource 2 for process 11435
-Sent message to process 11435
-Received request for resource 5 from process: 11432
-Grant resource 5 for process 11432
-Sent message to process 11432
-Received request for resource 5 from process: 11433
-Grant resource 5 for process 11433
-Sent message to process 11433
-Received request from process 11431 to release resource 5
-Process 11431 releases resource: 5
-Received request for resource 4 from process: 11434
-Grant resource 4 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11431
-Grant resource 4 for process 11431
-Sent message to process 11431
-Received request for resource 5 from process: 11435
-Grant resource 5 for process 11435
-Sent message to process 11435
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 3 from process: 11433
-Grant resource 3 for process 11433
-Sent message to process 11433
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 2 from process: 11431
-Grant resource 2 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 2 from process: 11432
-Grant resource 2 for process 11432
-Sent message to process 11432
-Received request for resource 6 from process: 11433
-Grant resource 6 for process 11433
-Sent message to process 11433
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 3 from process: 11431
-Grant resource 3 for process 11431
-Sent message to process 11431
-Received request for resource 1 from process: 11435
-Grant resource 1 for process 11435
-Sent message to process 11435
-Received request for resource 8 from process: 11432
-Grant resource 8 for process 11432
-Sent message to process 11432
-Received request for resource 6 from process: 11433
-Grant resource 6 for process 11433
-Sent message to process 11433
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 1 from process: 11431
-Grant resource 1 for process 11431
-Sent message to process 11431
-Received request for resource 4 from process: 11435
-Grant resource 4 for process 11435
-Sent message to process 11435
-Received request for resource 3 from process: 11432
-Grant resource 3 for process 11432
-Sent message to process 11432
-Received request for resource 0 from process: 11433
-Grant resource 0 for process 11433
-Sent message to process 11433
-Received request for resource 7 from process: 11434
-Grant resource 7 for process 11434
-Sent message to process 11434
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 1 from process: 11435
-Grant resource 1 for process 11435
-Sent message to process 11435
-Received request for resource 1 from process: 11432
-Grant resource 1 for process 11432
-Sent message to process 11432
-Received request for resource 2 from process: 11433
-Grant resource 2 for process 11433
-Sent message to process 11433
-Received request for resource 6 from process: 11434
-Grant resource 6 for process 11434
-Sent message to process 11434
-Received request for resource 2 from process: 11431
-Grant resource 2 for process 11431
-Sent message to process 11431
-Received request for resource 1 from process: 11435
-Grant resource 1 for process 11435
-Sent message to process 11435
-Received request for resource 2 from process: 11432
-Grant resource 2 for process 11432
-Sent message to process 11432
-Received request for resource 3 from process: 11433
-Grant resource 3 for process 11433
-Sent message to process 11433
-Received request for resource 5 from process: 11434
-Grant resource 5 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11431
-Grant resource 4 for process 11431
-Sent message to process 11431
-Received request for resource 3 from process: 11435
-Grant resource 3 for process 11435
-Sent message to process 11435
-Received request for resource 5 from process: 11432
-Grant resource 5 for process 11432
-Sent message to process 11432
-Received request for resource 4 from process: 11433
-Grant resource 4 for process 11433
-Sent message to process 11433
-Received request for resource 1 from process: 11434
-Grant resource 1 for process 11434
-Sent message to process 11434
-Received request for resource 6 from process: 11431
-Grant resource 6 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 6 from process: 11432
-Grant resource 6 for process 11432
-Sent message to process 11432
-Received request for resource 8 from process: 11433
-Grant resource 8 for process 11433
-Sent message to process 11433
-Received request for resource 8 from process: 11434
-Grant resource 8 for process 11434
-Sent message to process 11434
-Received request for resource 3 from process: 11431
-Grant resource 3 for process 11431
-Sent message to process 11431
-Received request for resource 5 from process: 11435
-Grant resource 5 for process 11435
-Sent message to process 11435
-Received request for resource 5 from process: 11432
-Grant resource 5 for process 11432
-Sent message to process 11432
-Received request for resource 7 from process: 11433
-Grant resource 7 for process 11433
-Sent message to process 11433
-Received request for resource 2 from process: 11434
-Grant resource 2 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11431
-Grant resource 4 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 6 from process: 11432
-Grant resource 6 for process 11432
-Sent message to process 11432
-Received request for resource 7 from process: 11433
-Grant resource 7 for process 11433
-Sent message to process 11433
-Received request for resource 6 from process: 11434
-Grant resource 6 for process 11434
-Sent message to process 11434
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 6 from process: 11435
-Grant resource 6 for process 11435
-Sent message to process 11435
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 0 from process: 11433
-Grant resource 0 for process 11433
-Sent message to process 11433
-Received request for resource 0 from process: 11434
-Grant resource 0 for process 11434
-Sent message to process 11434
-Received request for resource 4 from process: 11431
-Grant resource 4 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 5 from process: 11432
-Grant resource 5 for process 11432
-Sent message to process 11432
-Received request for resource 1 from process: 11434
-Grant resource 1 for process 11434
-Sent message to process 11434
-Received request for resource 0 from process: 11433
-Grant resource 0 for process 11433
-Sent message to process 11433
-Received request for resource 5 from process: 11431
-Grant resource 5 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 3 from process: 11432
-Grant resource 3 for process 11432
-Sent message to process 11432
-Received request for resource 5 from process: 11434
-Grant resource 5 for process 11434
-Sent message to process 11434
-Received request for resource 6 from process: 11433
-Grant resource 6 for process 11433
-Sent message to process 11433
-Received request for resource 2 from process: 11431
-Grant resource 2 for process 11431
-Sent message to process 11431
-Received request for resource 7 from process: 11435
-Grant resource 7 for process 11435
-Sent message to process 11435
-Received request for resource 3 from process: 11432
-Grant resource 3 for process 11432
-Sent message to process 11432
-Received request for resource 3 from process: 11434
-Grant resource 3 for process 11434
-Sent message to process 11434
-Received request for resource 6 from process: 11433
-Grant resource 6 for process 11433
-Sent message to process 11433
-Received request for resource 0 from process: 11431
-Grant resource 0 for process 11431
-Sent message to process 11431
-Received request for resource 6 from process: 11435
-Grant resource 6 for process 11435
-Sent message to process 11435
-Received request for resource 9 from process: 11432
-Grant resource 9 for process 11432
-Sent message to process 11432
-Received request for resource 6 from process: 11434
-Grant resource 6 for process 11434
-Sent message to process 11434
-Received request for resource 8 from process: 11433
-Grant resource 8 for process 11433
-Sent message to process 11433
-Received request for resource 8 from process: 11431
-Grant resource 8 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11435
-Grant resource 8 for process 11435
-Sent message to process 11435
-Received request for resource 6 from process: 11432
-Grant resource 6 for process 11432
-Sent message to process 11432
-Received request for resource 2 from process: 11434
-Grant resource 2 for process 11434
-Sent message to process 11434
-Received request for resource 8 from process: 11433
-Grant resource 8 for process 11433
-Sent message to process 11433
-Received request for resource 3 from process: 11431
-Grant resource 3 for process 11431
-Sent message to process 11431
-Received request for resource 3 from process: 11435
-Grant resource 3 for process 11435
-Sent message to process 11435
-Received request for resource 4 from process: 11432
-Grant resource 4 for process 11432
-Sent message to process 11432
-Received request for resource 9 from process: 11434
-Grant resource 9 for process 11434
-Sent message to process 11434
-Received request for resource 1 from process: 11433
-Grant resource 1 for process 11433
-Sent message to process 11433
-Received request for resource 7 from process: 11431
-Grant resource 7 for process 11431
-Sent message to process 11431
-Received request for resource 3 from process: 11435
-Grant resource 3 for process 11435
-Sent message to process 11435
-Received request for resource 2 from process: 11432
-Grant resource 2 for process 11432
-Sent message to process 11432
-Received request for resource 2 from process: 11434
-Grant resource 2 for process 11434
-Sent message to process 11434
-Received request for resource 8 from process: 11433
-Grant resource 8 for process 11433
-Sent message to process 11433
-Received request for resource 6 from process: 11431
-Grant resource 6 for process 11431
-Sent message to process 11431
-Received request for resource 6 from process: 11435
-Grant resource 6 for process 11435
-Sent message to process 11435
-Received request for resource 3 from process: 11432
-Grant resource 3 for process 11432
-Sent message to process 11432
-Received request for resource 6 from process: 11434
-Grant resource 6 for process 11434
-Sent message to process 11434
-Received request for resource 1 from process: 11433
-Grant resource 1 for process 11433
-Sent message to process 11433
-Received request for resource 8 from process: 11431
-Grant resource 8 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11435
-Grant resource 8 for process 11435
-Sent message to process 11435
-Received request for resource 7 from process: 11432
-Grant resource 7 for process 11432
-Sent message to process 11432
-Received request for resource 2 from process: 11434
-Grant resource 2 for process 11434
-Sent message to process 11434
-Received request for resource 1 from process: 11433
-Grant resource 1 for process 11433
-Sent message to process 11433
-Received request for resource 7 from process: 11431
-Grant resource 7 for process 11431
-Sent message to process 11431
-Received request for resource 8 from process: 11432
-Grant resource 8 for process 11432
-Sent message to process 11432
-Received request for resource 7 from process: 11433
-Grant resource 7 for process 11433
-Sent message to process 11433
-Received request for resource 7 from process: 11434
-Grant resource 7 for process 11434
-Sent message to process 11434
-Received request for resource 0 from process: 11431
-Grant resource 0 for process 11431
-Sent message to process 11431
-Received request for resource 6 from process: 11432
-Grant resource 6 for process 11432
-Sent message to process 11432
-Received request for resource 7 from process: 11433
-Grant resource 7 for process 11433
-Sent message to process 11433
-Received request from process 11434 t
+Process 12481 has launched at 0 seconds and 5000 nano
+Received request for resource 1 from process: 11614
+Grant resource 1 for process 11614
+Sent message to process 11614
+Process 12482 has launched at 0 seconds and 10000 nano
+Process 12483 has launched at 0 seconds and 15000 nano
+Received request from process 11614 to release resource -100
+Process 12484 has launched at 0 seconds and 20000 nano
+Process 12485 has launched at 0 seconds and 25000 nano
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 2 from process: 12482
+Grant resource 2 for process 12482
+Sent message to process 12482
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12482
+Grant resource 7 for process 12482
+Sent message to process 12482
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12483
+Grant resource 1 for process 12483
+Sent message to process 12483
+Received request from process 12481 to release resource 4
+Process 12481 releases resource: 4
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12483
+Grant resource 6 for process 12483
+Sent message to process 12483
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12482
+Grant resource 4 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12483
+Grant resource 6 for process 12483
+Sent message to process 12483
+Received request for resource 0 from process: 12484
+Grant resource 0 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 4 from process: 12483
+Grant resource 4 for process 12483
+Sent message to process 12483
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 1 from process: 12485
+Grant resource 1 for process 12485
+Sent message to process 12485
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Received request for resource 1 from process: 12483
+Grant resource 1 for process 12483
+Sent message to process 12483
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12482
+Grant resource 9 for process 12482
+Sent message to process 12482
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request for resource 5 from process: 12483
+Grant resource 5 for process 12483
+Sent message to process 12483
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12482
+Grant resource 9 for process 12482
+Sent message to process 12482
+Received request from process 12483 to release resource -100
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12485
+Grant resource 7 for process 12485
+Sent message to process 12485
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Process 12483 has been terminated
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Received request for resource 3 from process: 12485
+Grant resource 3 for process 12485
+Sent message to process 12485
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12482
+Grant resource 1 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12485
+Grant resource 6 for process 12485
+Sent message to process 12485
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 2 from process: 12485
+Grant resource 2 for process 12485
+Sent message to process 12485
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12482
+Grant resource 1 for process 12482
+Sent message to process 12482
+Received request for resource 9 from process: 12485
+Grant resource 9 for process 12485
+Sent message to process 12485
+Received request from process 12484 to release resource 6
+Process 12484 releases resource: 6
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 7 from process: 12485
+Grant resource 7 for process 12485
+Sent message to process 12485
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12482
+Grant resource 0 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12485
+Grant resource 6 for process 12485
+Sent message to process 12485
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12482
+Grant resource 4 for process 12482
+Sent message to process 12482
+Received request for resource 4 from process: 12485
+Grant resource 4 for process 12485
+Sent message to process 12485
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12482
+Grant resource 2 for process 12482
+Sent message to process 12482
+Received request for resource 5 from process: 12485
+Grant resource 5 for process 12485
+Sent message to process 12485
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12482
+Grant resource 2 for process 12482
+Sent message to process 12482
+Received request for resource 5 from process: 12485
+Grant resource 5 for process 12485
+Sent message to process 12485
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12482
+Grant resource 8 for process 12482
+Sent message to process 12482
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12482
+Grant resource 4 for process 12482
+Sent message to process 12482
+Received request for resource 3 from process: 12485
+Grant resource 3 for process 12485
+Sent message to process 12485
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12482
+Grant resource 9 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12485
+Grant resource 6 for process 12485
+Sent message to process 12485
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12482
+Grant resource 2 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12485
+Grant resource 6 for process 12485
+Sent message to process 12485
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request from process 12484 to release resource 3
+Process 12484 releases resource: 3
+Received request for resource 0 from process: 12482
+Grant resource 0 for process 12482
+Sent message to process 12482
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12485
+Grant resource 6 for process 12485
+Sent message to process 12485
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12482
+Grant resource 4 for process 12482
+Sent message to process 12482
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12485
+Grant resource 9 for process 12485
+Sent message to process 12485
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12482
+Grant resource 7 for process 12482
+Sent message to process 12482
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request from process 12484 to release resource 8
+Process 12484 releases resource: 8
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request from process 12481 to release resource 3
+Process 12481 releases resource: 3
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12485
+Grant resource 7 for process 12485
+Sent message to process 12485
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12482
+Grant resource 4 for process 12482
+Sent message to process 12482
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12485
+Grant resource 8 for process 12485
+Sent message to process 12485
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12482
+Grant resource 5 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 1 from process: 12485
+Grant resource 1 for process 12485
+Sent message to process 12485
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12482
+Grant resource 1 for process 12482
+Sent message to process 12482
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12485
+Grant resource 0 for process 12485
+Sent message to process 12485
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12482
+Grant resource 5 for process 12482
+Sent message to process 12482
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 5 from process: 12485
+Grant resource 5 for process 12485
+Sent message to process 12485
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12485
+Grant resource 9 for process 12485
+Sent message to process 12485
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12482
+Grant resource 1 for process 12482
+Sent message to process 12482
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request from process 12485 to release resource -100
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12482
+Grant resource 5 for process 12482
+Sent message to process 12482
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Process 12485 has been terminated
+Received request for resource 5 from process: 12482
+Grant resource 5 for process 12482
+Sent message to process 12482
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 0 from process: 12482
+Grant resource 0 for process 12482
+Sent message to process 12482
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request from process 12481 to release resource 6
+Process 12481 releases resource: 6
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12482
+Grant resource 7 for process 12482
+Sent message to process 12482
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12482
+Grant resource 6 for process 12482
+Sent message to process 12482
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12482
+Grant resource 1 for process 12482
+Sent message to process 12482
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12482
+Grant resource 3 for process 12482
+Sent message to process 12482
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request from process 12482 to release resource -100
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Process 12482 has been terminated
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 0 from process: 12484
+Grant resource 0 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 9 from process: 12481
+Grant resource 9 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for resource 0 from process: 12484
+Grant resource 0 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 2 from process: 12484
+Grant resource 2 for process 12484
+Sent message to process 12484
+Received request for resource 7 from process: 12481
+Grant resource 7 for process 12481
+Sent message to process 12481
+Received request from process 12484 to release resource 0
+Process 12484 releases resource: 0
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 1 from process: 12484
+Grant resource 1 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 5 from process: 12481
+Grant resource 5 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 1 from process: 12481
+Grant resource 1 for process 12481
+Sent message to process 12481
+Received request for resource 5 from process: 12484
+Grant resource 5 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 6 from process: 12481
+Grant resource 6 for process 12481
+Sent message to process 12481
+Received request for resource 4 from process: 12484
+Grant resource 4 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 0 from process: 12484
+Grant resource 0 for process 12484
+Sent message to process 12484
+Received request for resource 4 from process: 12481
+Grant resource 4 for process 12481
+Sent message to process 12481
+Received request for resource 9 from process: 12484
+Grant resource 9 for process 12484
+Sent message to process 12484
+Received request for resource 0 from process: 12481
+Grant resource 0 for process 12481
+Sent message to process 12481
+Received request for resource 8 from process: 12484
+Grant resource 8 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 3 from process: 12484
+Grant resource 3 for process 12484
+Sent message to process 12484
+Received request for resource 2 from process: 12481
+Grant resource 2 for process 12481
+Sent message to process 12481
+Received request for resource 7 from process: 12484
+Grant resource 7 for process 12484
+Sent message to process 12484
+Received request for resource 3 from process: 12481
+Grant resource 3 for process 12481
+Sent message to process 12481
+Received request for resource 6 from process: 12484
+Grant resource 6 for process 12484
+Sent message to process 12484
+Received request for resource 8 from process: 12481
+Grant resource 8 for process 12481
+Sent message to process 12481
+Received request for re
