@@ -149,7 +149,7 @@ int main(int argc, char* argv[]){
     //Set up user parameters
     options_t options;
     options.proc = 1; //n
-    options.simul = 1; //s
+    options.simul = 5; //s
     options.interval = 1; //i
     strcpy(options.logfile, "msgq.txt"); //f
 
@@ -333,7 +333,7 @@ int main(int argc, char* argv[]){
                 }
             }
             else if(buff.action > 0 && availableResources[buff.resource] > 0){
-                fprintf(fptr, "Received request for resource %d from process: %d\n", buff.pid, buff.resource);
+                fprintf(fptr, "Received request for resource %d from process: %d\n", buff.resource, buff.pid);
                 resourceControl(fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid); 
             }
             else if(buff.action > 0){
@@ -351,7 +351,7 @@ int main(int argc, char* argv[]){
                         qIndex = i;
                     }
                 }
-                fprintf(fptr, "Received request from process %d to release Resource %d\n", buff.pid, buff.resource);
+                fprintf(fptr, "Received request from process %d to release resource %d\n", buff.pid, buff.resource);
                 resourceControl(fptr, allocatedTable, availableResources, processTable[qIndex].pid, buff.resource, buff, msqid);
             }
             buff.pid = 0;
