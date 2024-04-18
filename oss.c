@@ -322,7 +322,7 @@ int main(int argc, char* argv[]){
                         }
                         processTable[blockedProcessKey].blocked = 0;
                         blockedCount--;
-                        (requestTable[processTable[blockedProcessKey].pid][i])--;
+                        (requestTable[blockedProcessKey][i])--;
                         deQueue(blockedQueue[i]);
                     }
                     else{
