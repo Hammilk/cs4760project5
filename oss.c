@@ -181,7 +181,6 @@ int main(int argc, char* argv[]){
     }
    
     //Set up variables;
-    pid_t pid;
     int seconds = 0;
     int nano = 0;
     *sharedSeconds = seconds;
@@ -241,11 +240,10 @@ int main(int argc, char* argv[]){
     int nextIntervalNano = 0;
     int childLaunchedCount = 0;
     pid_t terminatedChild = 0;
-    int status; //Where status of terminated pid will be stored
+    int status = 0; //Where status of terminated pid will be stored
     int blockedCount = 0;
     int altFlag = 0;
-    int checkSecond = 0;
-    int checkProgressSecond = 0;
+    int checkSecond = 0; int checkProgressSecond = 0;
 
     while(childrenFinishedCount < options.proc){        
         pid_t child = 0;
@@ -290,8 +288,8 @@ int main(int argc, char* argv[]){
                 perror("Add process table failed");
                 exit(1);
             }
-            printf("Process %d has launched\n", child);
-            fprintf(fptr, "Process %d has launched\n", child);
+            printf("Process %d has launched at %d seconds and %d nano\n", child, *sharedSeconds, *sharedNano);
+            fprintf(fptr, "Process %d has launched at %d seconds and %d nano\n", child, *sharedSeconds, *sharedNano);
             simulCount++;
             childLaunchedCount++;
             nextIntervalSecond += 1;
@@ -301,15 +299,31 @@ int main(int argc, char* argv[]){
         if(blockedCount > 0){
             for(int i = 0; i < 10; i++){
                 while(availableResources[i] > 0 && (blockedQueue[i]->front) != NULL){
-                    if(processTable[blockedQueue[i]->front->key].occupied){
-                        printf("Enter resource control at block\n");
-                        resourceControl(fptr, allocatedTable, availableResources, processTable[blockedQueue[i]->front->key].pid, i, buff, msqid);
-                        printf("Resource %d has been granted to process %d\n", i, processTable[blockedQueue[i]->front->key].pid);
-                        fprintf(fptr, "Resource %d has been granted to process %d\n", i, processTable[blockedQueue[i]->front->key].pid);
+                    if(processTable[blockedQueue[i]->front->key].occupied == 1){
+
+                        int blockedProcessKey = blockedQueue[i]->front->key;
+                        pid_t blockedProcess = processTable[blockedProcessKey].pid;
+
+                        (availableResources[i])--;
+                        (allocatedTable[blockedProcessKey][i])++;
+                        buff.mtype = blockedProcess;
+                        buff.resource = i;
+                        buff.pid = getpid();
+                        buff.action = 1;
+                        printf("Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
+                        fprintf(fptr, "Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
+                        if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
+                            perror("Msgsend to child failed");
+                            exit(1);
+                        }
+                        else{
+                            printf("Sent message to process %li\n", buff.mtype);
+                            fprintf(fptr, "Sent message to process %li\n", buff.mtype);
+                        }
+                        processTable[blockedProcessKey].blocked = 0;
                         blockedCount--;
-                        (requestTable[processTable[blockedQueue[i]->front->key].pid][i])--;
+                        (requestTable[processTable[blockedProcessKey].pid][i])--;
                         deQueue(blockedQueue[i]);
-                        
                     }
                     else{
                         blockedCount--;
@@ -321,7 +335,6 @@ int main(int argc, char* argv[]){
 
         //check messages and grant/release resource
         if(simulCount > 0){
-            int repeatFlag = 0;
             int qIndex = 0;
             if(msgrcv(msqid, &buff, sizeof(buff) - sizeof(long), 0, IPC_NOWAIT)==-1){
                 if(errno == ENOMSG){
@@ -336,30 +349,25 @@ int main(int argc, char* argv[]){
                 fprintf(fptr, "Received request for resource %d from process: %d\n", buff.resource, buff.pid);
                 resourceControl(fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid); 
             }
-            else if(buff.action > 0){
+            else if(buff.action > 0 && availableResources[buff.resource] == 0){
                 for(int i = 0; i < 20; i++){
                     if(processTable[i].pid == buff.pid){
-                        qIndex = i;
+                        qIndex = i; //Just returns the index of PCB/Resource Table
                     }
                 }
                 blockedCount++;
+                processTable[qIndex].blocked = 1;
                 enQueue(blockedQueue[buff.resource], qIndex);
                 (requestTable[qIndex][buff.resource])++;
             }
             else{
-                for(int i = 0; i < 20; i++){
-                    if(processTable[i].pid == buff.pid){
-                        qIndex = i;
-                    }
-                }
                 fprintf(fptr, "Received request from process %d to release resource %d\n", buff.pid, buff.resource);
-                resourceControl(fptr, allocatedTable, availableResources, processTable[qIndex].pid, buff.resource, buff, msqid);
+                resourceControl(fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid);
             }
             buff.pid = 0;
             buff.mtype = 0;
             buff.resource = 0;
             buff.action = 0;
-            
         } 
         //every half a second, output resource table and process table to logfile and screen
         if((*sharedSeconds * pow(10, 9) + *sharedNano) > checkProgressSecond * pow(10,8)){
@@ -374,18 +382,30 @@ int main(int argc, char* argv[]){
         if(*sharedSeconds > checkSecond){
             printf("Running Deadlock Detection Algorithm\n");
             fprintf(fptr, "Running Deadlock Detection Algorithm\n");
-            int index = -1;
-            while(deadlock(availableResources, 10, 10, *requestTable, *allocatedTable)){
-                if(blockedQueue[index = ((index+1) % 10)]->front != NULL){
-                    deQueue(blockedQueue[index]);
-                    childrenFinishedCount++;
-                    simulCount--;
-                    kill(processTable[index].pid, 9);
-                    resourceControl(fptr, allocatedTable, availableResources, processTable[index].pid, -100, buff, msqid);
-                    clearProcessTable(processTable, blockedQueue[index]->front->key);
-                    printf("Deadlock Detected: Deleting process %d\n", processTable[blockedQueue[index]->front->key].pid);
-                    fprintf(fptr, "Deadlock Detected: Deleting process %d\n", processTable[blockedQueue[index]->front->key].pid);
+            int index = 0;
+            int processKey = 0;
+            int repeat = 0;
+
+            if(deadlock(availableResources, 10, 20, *requestTable, *allocatedTable) == 1){
+                while(repeat == 0){
+                    if(blockedQueue[index]->front != NULL){
+                        processKey = blockedQueue[index]->front->key;
+                        deQueue(blockedQueue[index]);
+                    }
+                    if(processTable[processKey].occupied == 1){
+                        repeat = 1;
+                    }
+                    else{
+                        index++;
+                    }
                 }
+                childrenFinishedCount++;
+                simulCount--;
+                kill(processTable[processKey].pid, SIGTERM);
+                printf("Deadlock Detected: Deleting process %d\n", processTable[processKey].pid);
+                fprintf(fptr, "Deadlock Detected: Deleting process %d\n", processTable[processKey].pid);
+                resourceControl(fptr, allocatedTable, availableResources, processTable[processKey].pid, -100, buff, msqid);
+                clearProcessTable(processTable, processKey);
             }
             checkSecond += 1;
         }
@@ -400,18 +420,12 @@ int main(int argc, char* argv[]){
     //Remove shared memory
     shmdt(sharedSeconds);
     shmdt(sharedNano);
-    shmctl(shmidSeconds, IPC_RMID, NULL);
-    shmctl(shmidNano, IPC_RMID, NULL);
 
     //Close file
     fclose(fptr);
     return 0;
     
 }
-
-
-
-
 
 // print no more than 10k lines to a file
 int lfprintf(FILE *stream,const char *format, ... ) {
@@ -549,18 +563,18 @@ void resourceControl(FILE *fptr, int allocatedTable[20][10], int *availableResou
         }
     }
     else if(buff.action < 0){ //Release resource to process
-        printf("Process %d releases resource: %d\n", pid, -resource);
-        fprintf(fptr, "Process %d releases resource: %d\n", pid, -resource);
-        availableResources[-resource]++;
-        allocatedTable[index][-resource]--;
+        printf("Process %d releases resource: %d\n", pid, resource);
+        fprintf(fptr, "Process %d releases resource: %d\n", pid, resource);
+        availableResources[resource]++;
+        allocatedTable[index][resource]--;
     }
     else if(buff.action > 0){ //grant resource to process
-        availableResources[resource]--;
-        allocatedTable[index][resource]++;
-        printf("PID: %d\n", pid);
+        (availableResources[resource])--;
+        (allocatedTable[index][resource])++;
         buff.mtype = pid;
         buff.resource = resource;
         buff.pid = getpid();
+        buff.action = 1;
         printf("Grant resource %d for process %li\n", buff.resource, buff.mtype);
         fprintf(fptr, "Grant resource %d for process %li\n", buff.resource, buff.mtype);
         if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){

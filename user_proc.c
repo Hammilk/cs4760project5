@@ -132,15 +132,15 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                 printf("Child requesting for Resource %d\n", buff.resource);
             }
             else{ //Release section
-                buff.resource = -(rand() % 10);
+                buff.resource = (rand() % 10);
                 buff.action = -1;
                 buff.mtype = getppid();
-                while(resourceArray[-buff.resource] == 0){ //Checks to make sure child doesn't request more processes then what exits
+                while(resourceArray[buff.resource] == 0){ //Checks to make sure child doesn't request more processes then what exits
                     buff.mtype = getppid();
                     buff.resource = (rand() % 10);
                     buff.action = -1;
                 }
-                printf("Child releasing resource %d\n", -buff.resource);
+                printf("Child releasing resource %d\n", buff.resource);
             }
             //Send request/release
             printf("DEBUG: resource %d action %d\n", buff.resource, buff.action);
