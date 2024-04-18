@@ -148,7 +148,7 @@ int main(int argc, char* argv[]){
 
     //Set up user parameters
     options_t options;
-    options.proc = 1; //n
+    options.proc = 5; //n
     options.simul = 5; //s
     options.interval = 1; //i
     strcpy(options.logfile, "msgq.txt"); //f
@@ -342,6 +342,7 @@ int main(int argc, char* argv[]){
                         qIndex = i;
                     }
                 }
+                blockedCount++;
                 enQueue(blockedQueue[buff.resource], qIndex);
                 (requestTable[qIndex][buff.resource])++;
             }
@@ -371,15 +372,19 @@ int main(int argc, char* argv[]){
         
         //deadlock detection algorithm
         if(*sharedSeconds > checkSecond){
-            printf("Deadlock Detection Ran\n");
-            fprintf(fptr, "Deadlock Detection Ran\n");
+            printf("Running Deadlock Detection Algorithm\n");
+            fprintf(fptr, "Running Deadlock Detection Algorithm\n");
             int index = -1;
-            while(deadlock(availableResources, 10, 20, *requestTable, *allocatedTable)){
-                fprintf(fptr, "Enter delete\n");    
+            while(deadlock(availableResources, 10, 10, *requestTable, *allocatedTable)){
                 if(blockedQueue[index = ((index+1) % 10)]->front != NULL){
+                    deQueue(blockedQueue[index]);
+                    childrenFinishedCount++;
+                    simulCount--;
+                    kill(processTable[index].pid, 9);
+                    resourceControl(fptr, allocatedTable, availableResources, processTable[index].pid, -100, buff, msqid);
                     clearProcessTable(processTable, blockedQueue[index]->front->key);
-                    printf("Deadlock Detected: Deleting process %d", processTable[blockedQueue[index]->front->key].pid);
-                    fprintf(fptr, "Deadlock Detected: Deleting process %d", processTable[blockedQueue[index]->front->key].pid);
+                    printf("Deadlock Detected: Deleting process %d\n", processTable[blockedQueue[index]->front->key].pid);
+                    fprintf(fptr, "Deadlock Detected: Deleting process %d\n", processTable[blockedQueue[index]->front->key].pid);
                 }
             }
             checkSecond += 1;
@@ -403,6 +408,11 @@ int main(int argc, char* argv[]){
     return 0;
     
 }
+
+
+
+
+
 // print no more than 10k lines to a file
 int lfprintf(FILE *stream,const char *format, ... ) {
     static int lineCount = 0;
@@ -461,11 +471,11 @@ void print_usage(const char * app){
 void printProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20]){
     printf("OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
     printf("Process Table:\n");
-    printf("Entry     Occupied  PID       StartS    Startn\n"); 
+    printf("Entry     Occupied  PID       StartS    Startn     Blocked\n"); 
     for(int i = 0; i<20; i++){
         if((processTable[i].occupied) == 1){
-            printf("%d         %d         %d         %d         %d\n", i, processTable[i].occupied,
-                   processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
+            printf("%d         %d         %d         %d         %d         %d\n", i, processTable[i].occupied,
+                   processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano, processTable[i].blocked);
         }
     } 
 }
@@ -473,11 +483,11 @@ void printProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB proc
 void fprintProcessTable(int PID, int SysClockS, int SysClockNano, struct PCB processTable[20], FILE *fptr){
     lfprintf(fptr, "OSS PID %d SysClockS: %d SysClockNano: %d\n", PID, SysClockS, SysClockNano);
     lfprintf(fptr, "Process Table:\n");
-    lfprintf(fptr, "Entry     Occupied  PID       StartS    Startn\n"); 
+    lfprintf(fptr, "Entry     Occupied  PID       StartS    Startn      Blocked\n"); 
     for(int i = 0; i<20; i++){
         if((processTable[i].occupied) == 1){
-            lfprintf(fptr, "%d         %d         %d         %d         %d\n", i, processTable[i].occupied, 
-                     processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano);
+            lfprintf(fptr, "%d         %d         %d         %d         %d         %d\n", i, processTable[i].occupied, 
+                     processTable[i].pid, processTable[i].startSeconds, processTable[i].startNano, processTable[i].blocked);
         }
     } 
 }

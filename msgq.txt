@@ -1,659 +1,525 @@
-Process 247624 has launched
-Process 247625 has launched
-Process 247626 has launched
-Process 247627 has launched
-Process 247628 has launched
-Received request for resource 247624 from process: 0
-Grant resource 0 for process 247624
-Sent message to process 247624
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247626 from process: 6
-Grant resource 6 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request from process 247625 to release Resource -3
-Process 247625 releases resource: 3
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 2
-Grant resource 2 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 6
-Grant resource 6 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 6
-Grant resource 6 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 1
-Grant resource 1 for process 247624
-Sent message to process 247624
-Received request for resource 247626 from process: 6
-Grant resource 6 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247627 from process: 1
-Grant resource 1 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 3
-Grant resource 3 for process 247626
-Sent message to process 247626
-Received request for resource 247628 from process: 7
-Grant resource 7 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 5
-Grant resource 5 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247624 from process: 7
-Grant resource 7 for process 247624
-Sent message to process 247624
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247627 from process: 1
-Grant resource 1 for process 247627
-Sent message to process 247627
-Received request for resource 247624 from process: 4
-Grant resource 4 for process 247624
-Sent message to process 247624
-Received request for resource 247625 from process: 2
-Grant resource 2 for process 247625
-Sent message to process 247625
-Received request for resource 247627 from process: 0
-Grant resource 0 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 6
-Grant resource 6 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 2
-Grant resource 2 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 7
-Grant resource 7 for process 247628
-Sent message to process 247628
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247628 from process: 7
-Grant resource 7 for process 247628
-Sent message to process 247628
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 2
-Grant resource 2 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 1
-Grant resource 1 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 9
-Grant resource 9 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 3
-Grant resource 3 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 5
-Grant resource 5 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 4
-Grant resource 4 for process 247626
-Sent message to process 247626
-Received request for resource 247628 from process: 0
-Grant resource 0 for process 247628
-Sent message to process 247628
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 7
-Grant resource 7 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 0
-Grant resource 0 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 7
-Grant resource 7 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 6
-Grant resource 6 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 3
-Grant resource 3 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 9
-Grant resource 9 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 7
-Grant resource 7 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 9
-Grant resource 9 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 8
-Grant resource 8 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 9
-Grant resource 9 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 2
-Grant resource 2 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 9
-Grant resource 9 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 2
-Grant resource 2 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 1
-Grant resource 1 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 8
-Grant resource 8 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 2
-Grant resource 2 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 8
-Grant resource 8 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 4
-Grant resource 4 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 6
-Grant resource 6 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 4
-Grant resource 4 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 7
-Grant resource 7 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 2
-Grant resource 2 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 1
-Grant resource 1 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 8
-Grant resource 8 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 5
-Grant resource 5 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 8
-Grant resource 8 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 1
-Grant resource 1 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 4
-Grant resource 4 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 9
-Grant resource 9 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 5
-Grant resource 5 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 7
-Grant resource 7 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 1
-Grant resource 1 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 9
-Grant resource 9 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 5
-Grant resource 5 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 9
-Grant resource 9 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 2
-Grant resource 2 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 1
-Grant resource 1 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 5
-Grant resource 5 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 6
-Grant resource 6 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 4
-Grant resource 4 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 4
-Grant resource 4 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 3
-Grant resource 3 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 3
-Grant resource 3 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 5
-Grant resource 5 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 3
-Grant resource 3 for process 247628
-Sent message to process 247628
-Received request from process 247624 to release Resource -3
-Process 247624 releases resource: 3
-Received request for resource 247624 from process: 9
-Grant resource 9 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 5
-Grant resource 5 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 3
-Grant resource 3 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 3
-Grant resource 3 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 9
-Grant resource 9 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 0
-Grant resource 0 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 2
-Grant resource 2 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 6
-Grant resource 6 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 8
-Grant resource 8 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 4
-Grant resource 4 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 9
-Grant resource 9 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 4
-Grant resource 4 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 4
-Grant resource 4 for process 247627
-Sent message to process 247627
-Received request for resource 247626 from process: 2
-Grant resource 2 for process 247626
-Sent message to process 247626
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 1
-Grant resource 1 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 7
-Grant resource 7 for process 247624
-Sent message to process 247624
-Received request from process 247627 to release Resource -3
-Process 247627 releases resource: 3
-Received request for resource 247626 from process: 0
-Grant resource 0 for process 247626
-Sent message to process 247626
-Received request for resource 247627 from process: 1
-Grant resource 1 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 8
-Grant resource 8 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 1
-Grant resource 1 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 2
-Grant resource 2 for process 247624
-Sent message to process 247624
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247627 from process: 1
-Grant resource 1 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 7
-Grant resource 7 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 3
-Grant resource 3 for process 247624
-Sent message to process 247624
-Received request for resource 247626 from process: 5
-Grant resource 5 for process 247626
-Sent message to process 247626
-Received request for resource 247627 from process: 6
-Grant resource 6 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 0
-Grant resource 0 for process 247625
-Sent message to process 247625
-Received request for resource 247628 from process: 8
-Grant resource 8 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 4
-Grant resource 4 for process 247624
-Sent message to process 247624
-Received request for resource 247626 from process: 8
-Grant resource 8 for process 247626
-Sent message to process 247626
-Received request for resource 247627 from process: 6
-Grant resource 6 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request from process 247628 to release Resource -2
-Process 247628 releases resource: 2
-Received request for resource 247628 from process: 4
-Grant resource 4 for process 247628
-Sent message to process 247628
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247626 from process: 7
-Grant resource 7 for process 247626
-Sent message to process 247626
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request from process 247628 to release Resource -9
-Process 247628 releases resource: 9
-Received request for resource 247624 from process: 8
-Grant resource 8 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247625 from process: 8
-Grant resource 8 for process 247625
-Sent message to process 247625
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247627 from process: 0
-Grant resource 0 for process 247627
-Sent message to process 247627
-Received request for resource 247624 from process: 3
-Grant resource 3 for process 247624
-Sent message to process 247624
-Received request for resource 247625 from process: 2
-Grant resource 2 for process 247625
-Sent message to process 247625
-Received request for resource 247627 from process: 9
-Grant resource 9 for process 247627
-Sent message to process 247627
-Received request for resource 247624 from process: 6
-Grant resource 6 for process 247624
-Sent message to process 247624
-Received request for resource 247625 from process: 3
-Grant resource 3 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 9
-Grant resource 9 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 7
-Grant resource 7 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 4
-Grant resource 4 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 6
-Grant resource 6 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 1
-Grant resource 1 for process 247625
-Sent message to process 247625
-Received request for resource 247625 from process: 8
-Grant resource 8 for process 247625
-Sent message to process 247625
-Received request for resource 247627 from process: 2
-Grant resource 2 for process 247627
-Sent message to process 247627
-Received request for resource 247627 from process: 3
-Grant resource 3 for process 247627
-Sent message to process 247627
-Process 247628 has been terminated
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
-Deadlock Detection Ran
+Process 249693 has launched
+Process 249694 has launched
+Process 249695 has launched
+Process 249696 has launched
+Process 249697 has launched
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 1 from process: 249693
+Grant resource 1 for process 249693
+Sent message to process 249693
+Received request for resource 8 from process: 249693
+Grant resource 8 for process 249693
+Sent message to process 249693
+Received request for resource 6 from process: 249693
+Grant resource 6 for process 249693
+Sent message to process 249693
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 6 from process: 249693
+Grant resource 6 for process 249693
+Sent message to process 249693
+Received request for resource 1 from process: 249693
+Grant resource 1 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 9 from process: 249694
+Grant resource 9 for process 249694
+Sent message to process 249694
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Received request for resource 8 from process: 249695
+Grant resource 8 for process 249695
+Sent message to process 249695
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 1 from process: 249695
+Grant resource 1 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 4 from process: 249694
+Grant resource 4 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Process 249697 has been terminated
+Received request for resource 8 from process: 249693
+Grant resource 8 for process 249693
+Sent message to process 249693
+Received request from process 249697 to release resource -100
+Received request for resource 2 from process: 249696
+Grant resource 2 for process 249696
+Sent message to process 249696
+Received request for resource 0 from process: 249695
+Grant resource 0 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249694
+Grant resource 7 for process 249694
+Sent message to process 249694
+Received request for resource 8 from process: 249693
+Grant resource 8 for process 249693
+Sent message to process 249693
+Received request for resource 9 from process: 249696
+Grant resource 9 for process 249696
+Sent message to process 249696
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249696
+Grant resource 5 for process 249696
+Sent message to process 249696
+Received request for resource 8 from process: 249694
+Grant resource 8 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 6 from process: 249696
+Grant resource 6 for process 249696
+Sent message to process 249696
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 7 from process: 249694
+Grant resource 7 for process 249694
+Sent message to process 249694
+Received request for resource 0 from process: 249695
+Grant resource 0 for process 249695
+Sent message to process 249695
+Received request for resource 6 from process: 249696
+Grant resource 6 for process 249696
+Sent message to process 249696
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 4 from process: 249694
+Grant resource 4 for process 249694
+Sent message to process 249694
+Received request for resource 1 from process: 249695
+Grant resource 1 for process 249695
+Sent message to process 249695
+Received request from process 249696 to release resource 4
+Process 249696 releases resource: -4
+Received request for resource 8 from process: 249696
+Grant resource 8 for process 249696
+Sent message to process 249696
+Received request for resource 6 from process: 249693
+Grant resource 6 for process 249693
+Sent message to process 249693
+Received request for resource 9 from process: 249694
+Grant resource 9 for process 249694
+Sent message to process 249694
+Received request for resource 0 from process: 249695
+Grant resource 0 for process 249695
+Sent message to process 249695
+Received request for resource 4 from process: 249696
+Grant resource 4 for process 249696
+Sent message to process 249696
+Received request for resource 1 from process: 249693
+Grant resource 1 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 7 from process: 249695
+Grant resource 7 for process 249695
+Sent message to process 249695
+Received request for resource 1 from process: 249696
+Grant resource 1 for process 249696
+Sent message to process 249696
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 4 from process: 249695
+Grant resource 4 for process 249695
+Sent message to process 249695
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 0 from process: 249695
+Grant resource 0 for process 249695
+Sent message to process 249695
+Received request for resource 3 from process: 249696
+Grant resource 3 for process 249696
+Sent message to process 249696
+Received request for resource 2 from process: 249693
+Grant resource 2 for process 249693
+Sent message to process 249693
+Received request for resource 3 from process: 249694
+Grant resource 3 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 6 from process: 249696
+Grant resource 6 for process 249696
+Sent message to process 249696
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 3 from process: 249694
+Grant resource 3 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 5 from process: 249696
+Grant resource 5 for process 249696
+Sent message to process 249696
+Received request for resource 8 from process: 249693
+Grant resource 8 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 3 from process: 249696
+Grant resource 3 for process 249696
+Sent message to process 249696
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 5 from process: 249695
+Grant resource 5 for process 249695
+Sent message to process 249695
+Received request for resource 1 from process: 249696
+Grant resource 1 for process 249696
+Sent message to process 249696
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249696
+Grant resource 7 for process 249696
+Sent message to process 249696
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 0 from process: 249694
+Grant resource 0 for process 249694
+Sent message to process 249694
+Received request for resource 7 from process: 249695
+Grant resource 7 for process 249695
+Sent message to process 249695
+Received request for resource 1 from process: 249696
+Grant resource 1 for process 249696
+Sent message to process 249696
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Received request for resource 5 from process: 249695
+Grant resource 5 for process 249695
+Sent message to process 249695
+Received request for resource 1 from process: 249696
+Grant resource 1 for process 249696
+Sent message to process 249696
+Received request for resource 5 from process: 249693
+Grant resource 5 for process 249693
+Sent message to process 249693
+Received request for resource 3 from process: 249694
+Grant resource 3 for process 249694
+Sent message to process 249694
+Received request for resource 5 from process: 249695
+Grant resource 5 for process 249695
+Sent message to process 249695
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 4 from process: 249693
+Grant resource 4 for process 249693
+Sent message to process 249693
+Received request for resource 9 from process: 249694
+Grant resource 9 for process 249694
+Sent message to process 249694
+Received request for resource 8 from process: 249695
+Grant resource 8 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249696
+Grant resource 7 for process 249696
+Sent message to process 249696
+Received request for resource 2 from process: 249693
+Grant resource 2 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 9 from process: 249695
+Grant resource 9 for process 249695
+Sent message to process 249695
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 8 from process: 249694
+Grant resource 8 for process 249694
+Sent message to process 249694
+Received request for resource 0 from process: 249695
+Grant resource 0 for process 249695
+Sent message to process 249695
+Received request for resource 5 from process: 249696
+Grant resource 5 for process 249696
+Sent message to process 249696
+Received request for resource 2 from process: 249693
+Grant resource 2 for process 249693
+Sent message to process 249693
+Received request for resource 4 from process: 249694
+Grant resource 4 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 9 from process: 249696
+Grant resource 9 for process 249696
+Sent message to process 249696
+Received request for resource 3 from process: 249693
+Grant resource 3 for process 249693
+Sent message to process 249693
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 2 from process: 249696
+Grant resource 2 for process 249696
+Sent message to process 249696
+Received request for resource 0 from process: 249693
+Grant resource 0 for process 249693
+Sent message to process 249693
+Received request for resource 3 from process: 249694
+Grant resource 3 for process 249694
+Sent message to process 249694
+Received request for resource 5 from process: 249695
+Grant resource 5 for process 249695
+Sent message to process 249695
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 1 from process: 249693
+Grant resource 1 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 4 from process: 249696
+Grant resource 4 for process 249696
+Sent message to process 249696
+Received request for resource 1 from process: 249693
+Grant resource 1 for process 249693
+Sent message to process 249693
+Received request for resource 7 from process: 249694
+Grant resource 7 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 8 from process: 249696
+Grant resource 8 for process 249696
+Sent message to process 249696
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 7 from process: 249694
+Grant resource 7 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 1 from process: 249696
+Grant resource 1 for process 249696
+Sent message to process 249696
+Received request for resource 4 from process: 249693
+Grant resource 4 for process 249693
+Sent message to process 249693
+Received request for resource 9 from process: 249694
+Grant resource 9 for process 249694
+Sent message to process 249694
+Received request for resource 9 from process: 249695
+Grant resource 9 for process 249695
+Sent message to process 249695
+Received request for resource 9 from process: 249696
+Grant resource 9 for process 249696
+Sent message to process 249696
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 2 from process: 249695
+Grant resource 2 for process 249695
+Sent message to process 249695
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 9 from process: 249693
+Grant resource 9 for process 249693
+Sent message to process 249693
+Received request for resource 9 from process: 249694
+Grant resource 9 for process 249694
+Sent message to process 249694
+Received request for resource 5 from process: 249695
+Grant resource 5 for process 249695
+Sent message to process 249695
+Received request for resource 9 from process: 249696
+Grant resource 9 for process 249696
+Sent message to process 249696
+Received request for resource 2 from process: 249693
+Grant resource 2 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 1 from process: 249695
+Grant resource 1 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249696
+Grant resource 7 for process 249696
+Sent message to process 249696
+Received request for resource 4 from process: 249693
+Grant resource 4 for process 249693
+Sent message to process 249693
+Received request for resource 6 from process: 249694
+Grant resource 6 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249696
+Grant resource 7 for process 249696
+Sent message to process 249696
+Received request for resource 7 from process: 249693
+Grant resource 7 for process 249693
+Sent message to process 249693
+Received request for resource 8 from process: 249694
+Grant resource 8 for process 249694
+Sent message to process 249694
+Received request for resource 7 from process: 249695
+Grant resource 7 for process 249695
+Sent message to process 249695
+Received request for resource 7 from process: 249696
+Grant resource 7 for process 249696
+Sent message to process 249696
+Received request for resource 4 from process: 249693
+Grant resource 4 for process 249693
+Sent message to process 249693
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request for resource 3 from process: 249695
+Grant resource 3 for process 249695
+Sent message to process 249695
+Received request for resource 4 from process: 249696
+Grant resource 4 for process 249696
+Sent message to process 249696
+Received request for resource 6 from process: 249693
+Grant resource 6 for process 249693
+Sent message to process 249693
+Received request for resource 2 from process: 249694
+Grant resource 2 for process 249694
+Sent message to process 249694
+Received request for resource 6 from process: 249695
+Grant resource 6 for process 249695
+Sent message to process 249695
+Received request for resource 3 from process: 249696
+Grant resource 3 for process 249696
+Sent message to process 249696
+Received request for resource 5 from process: 249694
+Grant resource 5 for process 249694
+Sent message to process 249694
+Received request from process 249695 to release resource -9
+Process 249695 releases resource: 9
+Received request for resource 0 from process: 249696
+Grant resource 0 for process 249696
+Sent message to process 249696
+Received request for resource 1 from process: 249694
+Grant resource 1 for process 249694
+Sent message to process 249694
+Received request for resource 0 from process: 249694
+Grant resource 0 for process 249694
+Sent message to process 249694
+Received request for resource 7 from process: 249694
+Grant resource 7 for process 249694
+Sent message to process 249694
+Received request for resource 8 from process: 249694
+Grant resource 8 for process 249694
+Sent message to process 249694
+Running Deadlock Detection Algorithm
+Process 249695 has been terminated
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
+Running Deadlock Detection Algorithm
