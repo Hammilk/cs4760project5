@@ -1,2 +1,199 @@
-Process 237344 has launched
-Buff Resource: 3
+Process 247375 has launched
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request from process 247375 to release Resource -8
+Process 247375 releases resource: 8
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 4
+Grant resource 4 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 9
+Grant resource 9 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 4
+Grant resource 4 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 5
+Grant resource 5 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 5
+Grant resource 5 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 3
+Grant resource 3 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 4
+Grant resource 4 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 4
+Grant resource 4 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 5
+Grant resource 5 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 9
+Grant resource 9 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 5
+Grant resource 5 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 8
+Grant resource 8 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 2
+Grant resource 2 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 9
+Grant resource 9 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 4
+Grant resource 4 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 6
+Grant resource 6 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 0
+Grant resource 0 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 7
+Grant resource 7 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request for resource 247375 from process: 1
+Grant resource 1 for process 247375
+Sent message to process 247375
+Received request from process 247375 to release Resource -9
+Process 247375 releases resource: 9
+Deadlock Detection Ran
+Process 247375 has been terminated

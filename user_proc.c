@@ -12,7 +12,7 @@
 #define SHMKEY2 2031536
 #define BUFF_SZ sizeof(int)
 #define PERMS 0644
-#define reqChance 90 //defines the chance that the process makes a request
+#define reqChance 5 //defines the chance that the process makes a request
 #define termChance 1 //defines the chance that a process terminates within a loop
 
 //Randomizer Section
@@ -43,6 +43,8 @@ static int randomize(void){
 typedef struct{
     long mtype;
     int resource; //+ for request, - for giving
+    pid_t pid;
+    int action;
 } msgbuffer;
 
 int main(int argc, char** argv){ //at some point, add bound parameter
@@ -52,6 +54,8 @@ int main(int argc, char** argv){ //at some point, add bound parameter
     msgbuffer buff;
     buff.mtype = 1;
     int msqid = 0;
+    buff.pid = 0;
+    buff.action = 0;
     key_t key;
 
     if((key = ftok("oss.c", 1)) == -1){
@@ -109,38 +113,46 @@ int main(int argc, char** argv){ //at some point, add bound parameter
     int resourceCount = 0;
 
     //Work section
-    while(!termFlag){
+    while(termFlag == 0){
+        printf("loop\n");
         //check if time to request
         if(*sharedSeconds > requestSecond || (requestSecond == *sharedSeconds) && (*sharedNano > requestNano)){
             //Determine whether to request or release 
-            int requestGenerate = rand() % 101;
+            int requestGenerate = rand() % 201;
+            buff.pid = getpid();
             if(resourceCount == 0 || requestGenerate > reqChance){ //if requestGenerate is higher than reqchance, request
                 buff.resource = rand() % 10;
+                buff.action = 1;
+                buff.mtype = getppid();
                 while(resourceArray[buff.resource] > 20){
                     buff.mtype = getppid();
                     buff.resource = rand() % 10;
+                    buff.action = 1; 
                 }
-                printf("Requesting for Resource %d\n", buff.resource);
+                printf("Child requesting for Resource %d\n", buff.resource);
             }
             else{ //Release section
                 buff.resource = -(rand() % 10);
-                while(resourceArray[-buff.resource] < 0){ //Checks to make sure child doesn't request more processes then what exits
+                buff.action = -1;
+                buff.mtype = getppid();
+                while(resourceArray[-buff.resource] == 0){ //Checks to make sure child doesn't request more processes then what exits
                     buff.mtype = getppid();
-                    buff.resource = -(rand() % 10);
+                    buff.resource = (rand() % 10);
+                    buff.action = -1;
                 }
-                printf("Releasing resource %d\n", -buff.resource);
+                printf("Child releasing resource %d\n", -buff.resource);
             }
             //Send request/release
-            if(msgsnd(msqid, &buff, sizeof(msgbuffer) - sizeof(long), 0) == -1){
+            printf("DEBUG: resource %d action %d\n", buff.resource, buff.action);
+            if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
                 perror("msgsnd to parent failed\n");
                 exit(1);
             }
             
             //If sent request message, blocking recieved until child receives resource
-            if(buff.resource > -1){
-                printf("start blocking\n");
-                if(msgrcv(msqid, &buff, sizeof(msgbuffer), getpid(), 0) == -1){
-                    perror("msgsnd to parent failed");
+            if(buff.action > 0){
+                if(msgrcv(msqid, &buff, sizeof(buff) - sizeof(long), getpid(), 0) == -1){
+                    perror("msgrcv to parent failed");
                     exit(1);
                 }
                 //Increment resource in resource array to track
@@ -160,13 +172,23 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                 resourceArray[buff.resource]--;
                 resourceCount--;
             }
-        }     
+        }
 
         //Determinte if process should terminate
         int terminateGenerate = rand() % 201;
         if(terminateGenerate < termChance){
+
+            printf("Process %d is terminating\n", getpid());
             termFlag = 1;
+            buff.action = -100;
+            buff.resource = -100;
+            buff.pid = getpid();
+            buff.mtype = getppid();
+            if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
+                perror("msgsnd to parent failed\n");
+                exit(1);
+            }
         }
     }
-    printf("I AM TERMINATING\n");
+    EXIT_SUCCESS;
 }
