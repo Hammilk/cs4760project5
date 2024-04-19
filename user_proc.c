@@ -53,7 +53,7 @@ int main(int argc, char** argv){ //at some point, add bound parameter
     //Set up message queue stuff
     msgbuffer buff;
     buff.mtype = 1;
-    int msqid = 0;
+    int msqid;
     buff.pid = 0;
     buff.action = 0;
     key_t key;
@@ -114,7 +114,6 @@ int main(int argc, char** argv){ //at some point, add bound parameter
 
     //Work section
     while(termFlag == 0){
-        printf("loop\n");
         //check if time to request
         if(*sharedSeconds > requestSecond || (requestSecond == *sharedSeconds) && (*sharedNano > requestNano)){
             //Determine whether to request or release 
@@ -143,7 +142,6 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                 printf("Child releasing resource %d\n", buff.resource);
             }
             //Send request/release
-            printf("DEBUG: resource %d action %d\n", buff.resource, buff.action);
             if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
                 perror("msgsnd to parent failed\n");
                 exit(1);
@@ -155,16 +153,22 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                     perror("msgrcv to parent failed");
                     exit(1);
                 }
-                //Increment resource in resource array to track
-                resourceArray[buff.resource]++;
-                resourceCount++;
-                //Reset bounds 
-                bound = rand() % (atoi(argv[1]) + 1);
-                requestNano = sysClockNano + bound;
-                requestSecond = requestSecond;
-                if(requestNano > pow(10, 9)){
-                    requestNano -= (pow(10, 9));
-                    requestSecond++;
+                if(buff.action == -100){
+                    printf("Child process %d is terminating early from deadlock detection algorithm\n", getpid());
+                    break;
+                }
+                else{
+                    //Increment resource in resource array to track
+                    resourceArray[buff.resource]++;
+                    resourceCount++;
+                    //Reset bounds 
+                    bound = rand() % (atoi(argv[1]) + 1);
+                    requestNano = sysClockNano + bound;
+                    requestSecond = requestSecond;
+                    if(requestNano > pow(10, 9)){
+                        requestNano -= (pow(10, 9));
+                        requestSecond++;
+                    }
                 }
             }
             else{
@@ -189,6 +193,10 @@ int main(int argc, char** argv){ //at some point, add bound parameter
                 exit(1);
             }
         }
+    }
+    if(msgctl(msqid, IPC_RMID, NULL) == -1){
+        perror("msgctl");
+        exit(1);
     }
     EXIT_SUCCESS;
 }

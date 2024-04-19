@@ -94,10 +94,23 @@ void incrementClock(int *seconds, int *nano, int increment);
 static int randomize_helper(FILE *in);
 static int randomize(void);
 void clearResources();
-void resourceControl(FILE *fptr, int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff, int msqid);
+void resourceControl(int verbose, FILE *fptr, int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff, int msqid);
 int clearProcessTable(struct PCB processTable[20], pid_t pid);
 
 int main(int argc, char* argv[]){
+
+    int verbose = 0;
+    char answer;
+    printf("Verbose mode on?: Y/N\n");
+    scanf("%c", &answer);
+    if(answer == 'Y' || answer == 'y'){
+        verbose = 1;
+    }
+    else{
+        verbose = 0;
+    }
+
+
     //Seed random
     if(randomize()){
         fprintf(stderr, "Warning: No source for randomness.\n");
@@ -243,7 +256,16 @@ int main(int argc, char* argv[]){
     int status = 0; //Where status of terminated pid will be stored
     int blockedCount = 0;
     int altFlag = 0;
-    int checkSecond = 0; int checkProgressSecond = 0;
+    int checkSecond = 0; 
+    int checkProgressSecond = 0;
+    int grantedCount = 0;
+
+    //Stats
+    int grantedImmediately = 0;
+    int grantedWait = 0;
+    int deadlockCount = 0;
+    int naturalTermination = 0;
+    int deadlockTerminated = 0;
 
     while(childrenFinishedCount < options.proc){        
         pid_t child = 0;
@@ -254,8 +276,8 @@ int main(int argc, char* argv[]){
                 exit(1);
             }
             //if terminated child clear resources and process table entry
-            printf("Enter resource control at term\n");
-            resourceControl(fptr, allocatedTable, availableResources, terminatedChild, -100, buff, msqid);
+            resourceControl(verbose, fptr, allocatedTable, availableResources, terminatedChild, -100, buff, msqid);
+            naturalTermination++;
             if(clearProcessTable(processTable, terminatedChild) == -1){
                 perror("Process Clear Aborted Abnormally");
                 exit(1);
@@ -268,7 +290,8 @@ int main(int argc, char* argv[]){
         }
         //launch child
         if(childLaunchedCount < options.proc && 
-            simulCount < options.simul && 
+            simulCount < options.simul &&
+            simulCount < 18 &&
             (*sharedSeconds > nextIntervalSecond || *sharedSeconds == nextIntervalNano && *sharedNano > nextIntervalSecond) &&
             (child = fork()) == 0){
                         
@@ -297,8 +320,11 @@ int main(int argc, char* argv[]){
             
         //grant outstanding requests
         if(blockedCount > 0){
-            for(int i = 0; i < 10; i++){
-                while(availableResources[i] > 0 && (blockedQueue[i]->front) != NULL){
+            int releaseFlag = 0;
+            int i = 0;
+            int i2 = 0;
+            while(i2 < 10 && releaseFlag == 0){
+                while(availableResources[i] > 0 && (blockedQueue[i]->front) != NULL && i < 10){
                     if(processTable[blockedQueue[i]->front->key].occupied == 1){
 
                         int blockedProcessKey = blockedQueue[i]->front->key;
@@ -310,26 +336,33 @@ int main(int argc, char* argv[]){
                         buff.resource = i;
                         buff.pid = getpid();
                         buff.action = 1;
-                        printf("Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
-                        fprintf(fptr, "Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
+                        if(verbose == 1){
+                            printf("Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
+                            fprintf(fptr, "Grant resource %d to unblock process %li\n", buff.resource, buff.mtype);
+                        }
                         if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
                             perror("Msgsend to child failed");
                             exit(1);
                         }
-                        else{
+                        else if(verbose == 1){
                             printf("Sent message to process %li\n", buff.mtype);
                             fprintf(fptr, "Sent message to process %li\n", buff.mtype);
                         }
+                        grantedWait++;
+                        grantedCount++;
                         processTable[blockedProcessKey].blocked = 0;
                         blockedCount--;
                         (requestTable[blockedProcessKey][i])--;
                         deQueue(blockedQueue[i]);
+                        releaseFlag = 1;
                     }
                     else{
                         blockedCount--;
                         deQueue(blockedQueue[i]);
                     }
+                    i++;
                 }
+                i2++;
             }
         }
 
@@ -347,7 +380,9 @@ int main(int argc, char* argv[]){
             }
             else if(buff.action > 0 && availableResources[buff.resource] > 0){
                 fprintf(fptr, "Received request for resource %d from process: %d\n", buff.resource, buff.pid);
-                resourceControl(fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid); 
+                resourceControl(verbose, fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid);
+                grantedCount++;
+                grantedImmediately++;
             }
             else if(buff.action > 0 && availableResources[buff.resource] == 0){
                 for(int i = 0; i < 20; i++){
@@ -362,7 +397,7 @@ int main(int argc, char* argv[]){
             }
             else{
                 fprintf(fptr, "Received request from process %d to release resource %d\n", buff.pid, buff.resource);
-                resourceControl(fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid);
+                resourceControl(verbose, fptr, allocatedTable, availableResources, buff.pid, buff.resource, buff, msqid);
             }
             buff.pid = 0;
             buff.mtype = 0;
@@ -373,10 +408,12 @@ int main(int argc, char* argv[]){
         if((*sharedSeconds * pow(10, 9) + *sharedNano) > checkProgressSecond * pow(10,8)){
             if(simulCount > 0){
                 printProcessTable(getpid(), *sharedSeconds, *sharedNano, processTable);
-                printResourceTable(allocatedTable);
             }
             checkProgressSecond += 5;
-        } 
+        }
+        if(grantedCount % 20 == 0){
+            printResourceTable(allocatedTable);
+        }
         
         //deadlock detection algorithm
         if(*sharedSeconds > checkSecond){
@@ -385,8 +422,9 @@ int main(int argc, char* argv[]){
             int index = 0;
             int processKey = 0;
             int repeat = 0;
+            deadlockCount++;
 
-            if(deadlock(availableResources, 10, 20, *requestTable, *allocatedTable) == 1){
+            while(deadlock(availableResources, 10, 20, *requestTable, *allocatedTable) == 1){
                 while(repeat == 0){
                     if(blockedQueue[index]->front != NULL){
                         processKey = blockedQueue[index]->front->key;
@@ -401,10 +439,25 @@ int main(int argc, char* argv[]){
                 }
                 childrenFinishedCount++;
                 simulCount--;
-                kill(processTable[processKey].pid, SIGTERM);
+                buff.mtype = processTable[processKey].pid;
+                buff.action = -100;
+                buff.resource = -100;
+                buff.pid = getpid();
+                if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
+                    perror("Msgsend to child failed");
+                    exit(1);
+                }
+                buff.mtype = 0;
+                buff.action = 0;
+                buff.resource = 0;
+                buff.pid = 0;
                 printf("Deadlock Detected: Deleting process %d\n", processTable[processKey].pid);
                 fprintf(fptr, "Deadlock Detected: Deleting process %d\n", processTable[processKey].pid);
-                resourceControl(fptr, allocatedTable, availableResources, processTable[processKey].pid, -100, buff, msqid);
+                deadlockTerminated++;
+                for(int i = 0; i < 10; i++){
+                    availableResources[i] += allocatedTable[processKey][i];
+                    allocatedTable[processKey][i] = 0;
+                }
                 clearProcessTable(processTable, processKey);
             }
             checkSecond += 1;
@@ -424,6 +477,15 @@ int main(int argc, char* argv[]){
     //Close file
     fclose(fptr);
     return 0;
+
+    printf("Statistics\n");
+    printf("Processes granted resource immediately: %d\n", grantedImmediately);
+    printf("Processes granted resource after waiting: %d\n", grantedWait);
+    printf("Processes terminated naturally: %d\n", naturalTermination);
+    printf("Processes terminated through deadlock: %d\n", deadlockTerminated);
+    double percentage = (double)naturalTermination / (double)(naturalTermination + deadlockTerminated);
+    printf("Percentages of processes terminated through deadlock: %lf\n", percentage);
+    printf("Program End\n");
     
 }
 
@@ -467,7 +529,7 @@ static int setupinterrupt(void){
 
 static int setupitimer(void){
     struct itimerval value;
-    value.it_interval.tv_sec = 5;
+    value.it_interval.tv_sec = 60;
     value.it_interval.tv_usec = 0;
     value.it_value = value.it_interval;
     return (setitimer(ITIMER_PROF, &value, NULL));
@@ -548,7 +610,7 @@ static int randomize(void){
     return -1;
 }
 
-void resourceControl(FILE *fptr, int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff, int msqid){
+void resourceControl(int verbose, FILE *fptr, int allocatedTable[20][10], int *availableResources, pid_t pid, int resource, msgbuffer buff, int msqid){
     printf("Enter Resource Control\n");    
     int index = 0;
     for(int i = 0; i < 20; i++){
@@ -575,8 +637,10 @@ void resourceControl(FILE *fptr, int allocatedTable[20][10], int *availableResou
         buff.resource = resource;
         buff.pid = getpid();
         buff.action = 1;
-        printf("Grant resource %d for process %li\n", buff.resource, buff.mtype);
-        fprintf(fptr, "Grant resource %d for process %li\n", buff.resource, buff.mtype);
+        if(verbose == 1){
+            printf("Grant resource %d for process %li\n", buff.resource, buff.mtype);
+            fprintf(fptr, "Grant resource %d for process %li\n", buff.resource, buff.mtype);
+        }
         if(msgsnd(msqid, &buff, sizeof(buff) - sizeof(long), 0) == -1){
             perror("Msgsend to child failed");
             exit(1);
@@ -588,7 +652,6 @@ void resourceControl(FILE *fptr, int allocatedTable[20][10], int *availableResou
     }
     else{
         perror("Resource error");
-        printf("DEBUG: type %li, resource %d, action %d, pid %d\n", buff.mtype, buff.resource, buff.action, buff.pid);
         exit(1);
     }
 }

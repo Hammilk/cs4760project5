@@ -1,17 +1,39 @@
 CS 4760
 AUTHOR: DAVID PHAM
-PROJECT: PROJECT 4
+PROJECT: PROJECT 5
 
-The purpose of this project is to coordinate child processes with the use of a multi-level feedback queue.
+NOTES:
+<RANT>
+Yeaaaa so this doesn't work.
+Outstanding Issues:
+On terminating of child, for whatever reason, I keep getting "Identifier removed". I checked msqid at the time of the system
+so it's not that the msqid is going away. I think althrough I don't really know how to verify, for whatever reason, the
+message queue itself is getting deleted which is weird since killing the children shouldn't affect the message queues.
+1 possible way I tried to implement it is using the msgctl command with NULL in the 3rd argument in the child to get the children
+to unattach from the message queues without deleting the message queue from the system but that didn't work.
+
+On the possibility that it was a thundering herd issue, I tried releasing the children one by one but that didn't work.
+
+In the children, I checked the msqid on msgrc and the msqid was the PID of the children which was REEAAAAALLLLY weird. IDK what this is,
+I don't know how the children could possibly receive messages not meant for them if their pid parameter was correctly set to itself.
+
+Deadlock detection algorithm seems to work fine though.
+I'm just having problems with killing the children (as any honorable man would).
+</RANT>
+
+be gentle
+
+The purpose of this project is to implement and use a deadlock detection algorithm.
 
 
 The following are the user input parameters for this project:
 -h "Help" Brings up user parameters for project
 -n "proc" Total amount of children to be launched
 -s "simul" Simultaneous amount of children that can be launched
--t "timeLimitforChildren" The period of time the children will exist for
 -i "intervalInMsToLaunchChildren" The upper bound of a tie interval of which the parent will launch the children
 -f "logfile" This input is the name of the logfile that you would like to write to. Add suffix ".txt" if you want file to be .txt file.
+
+
 
 To compile the project. Enter "make" into the command line and run "./oss".
 

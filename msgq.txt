@@ -1,737 +1,303 @@
-Process 14885 has launched at 0 seconds and 5000 nano
-Process 14886 has launched at 0 seconds and 10000 nano
-Process 14887 has launched at 0 seconds and 15000 nano
-Process 14888 has launched at 0 seconds and 20000 nano
-Process 14889 has launched at 0 seconds and 25000 nano
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 7 from process: 14886
-Grant resource 7 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14886
-Grant resource 4 for process 14886
-Sent message to process 14886
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14887
-Grant resource 5 for process 14887
-Sent message to process 14887
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14886
-Grant resource 9 for process 14886
-Sent message to process 14886
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14886
-Grant resource 3 for process 14886
-Sent message to process 14886
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 1 from process: 14885
-Grant resource 1 for process 14885
-Sent message to process 14885
-Received request for resource 1 from process: 14886
-Grant resource 1 for process 14886
-Sent message to process 14886
-Received request for resource 7 from process: 14887
-Grant resource 7 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14886
-Grant resource 4 for process 14886
-Sent message to process 14886
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 0 from process: 14887
-Grant resource 0 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14886
-Grant resource 2 for process 14886
-Sent message to process 14886
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14886
-Grant resource 3 for process 14886
-Sent message to process 14886
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 7 from process: 14888
-Grant resource 7 for process 14888
-Sent message to process 14888
-Received request for resource 5 from process: 14885
-Grant resource 5 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14886
-Grant resource 8 for process 14886
-Sent message to process 14886
-Received request for resource 9 from process: 14889
-Grant resource 9 for process 14889
-Sent message to process 14889
-Received request for resource 1 from process: 14887
-Grant resource 1 for process 14887
-Sent message to process 14887
-Received request for resource 0 from process: 14888
-Grant resource 0 for process 14888
-Sent message to process 14888
-Received request for resource 3 from process: 14885
-Grant resource 3 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14886
-Grant resource 8 for process 14886
-Sent message to process 14886
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 5 from process: 14885
-Grant resource 5 for process 14885
-Sent message to process 14885
-Received request for resource 1 from process: 14886
-Grant resource 1 for process 14886
-Sent message to process 14886
-Received request for resource 7 from process: 14889
-Grant resource 7 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 0 from process: 14888
-Grant resource 0 for process 14888
-Sent message to process 14888
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14886
-Grant resource 2 for process 14886
-Sent message to process 14886
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 3 from process: 14885
-Grant resource 3 for process 14885
-Sent message to process 14885
-Received request for resource 6 from process: 14886
-Grant resource 6 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14889
-Grant resource 0 for process 14889
-Sent message to process 14889
-Received request for resource 3 from process: 14887
-Grant resource 3 for process 14887
-Sent message to process 14887
-Received request for resource 1 from process: 14888
-Grant resource 1 for process 14888
-Sent message to process 14888
-Received request for resource 5 from process: 14885
-Grant resource 5 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14886
-Grant resource 3 for process 14886
-Sent message to process 14886
-Received request for resource 4 from process: 14889
-Grant resource 4 for process 14889
-Sent message to process 14889
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Received request from process 14888 to release resource 6
-Process 14888 releases resource: 6
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request from process 14885 to release resource 5
-Process 14885 releases resource: 5
-Received request for resource 0 from process: 14886
-Grant resource 0 for process 14886
-Sent message to process 14886
-Received request for resource 1 from process: 14885
-Grant resource 1 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Received request for resource 1 from process: 14889
-Grant resource 1 for process 14889
-Sent message to process 14889
-Received request for resource 2 from process: 14888
-Grant resource 2 for process 14888
-Sent message to process 14888
-Received request for resource 5 from process: 14886
-Grant resource 5 for process 14886
-Sent message to process 14886
-Received request for resource 6 from process: 14885
-Grant resource 6 for process 14885
-Sent message to process 14885
-Received request for resource 1 from process: 14887
-Grant resource 1 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14889
-Grant resource 4 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14886
-Grant resource 6 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14887
-Grant resource 3 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14889
-Grant resource 8 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 1 from process: 14886
-Grant resource 1 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Received request for resource 2 from process: 14889
-Grant resource 2 for process 14889
-Sent message to process 14889
-Received request for resource 7 from process: 14888
-Grant resource 7 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14886
-Grant resource 6 for process 14886
-Sent message to process 14886
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14887
-Grant resource 5 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14889
-Grant resource 9 for process 14889
-Sent message to process 14889
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 3 from process: 14886
-Grant resource 3 for process 14886
-Sent message to process 14886
-Received request for resource 3 from process: 14885
-Grant resource 3 for process 14885
-Sent message to process 14885
-Received request for resource 0 from process: 14887
-Grant resource 0 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14889
-Grant resource 4 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 7 from process: 14886
-Grant resource 7 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 1 from process: 14887
-Grant resource 1 for process 14887
-Sent message to process 14887
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 2 from process: 14888
-Grant resource 2 for process 14888
-Sent message to process 14888
-Received request for resource 9 from process: 14886
-Grant resource 9 for process 14886
-Sent message to process 14886
-Received request for resource 9 from process: 14885
-Grant resource 9 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 0 from process: 14886
-Grant resource 0 for process 14886
-Sent message to process 14886
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14889
-Grant resource 8 for process 14889
-Sent message to process 14889
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14886
-Grant resource 8 for process 14886
-Sent message to process 14886
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14887
-Grant resource 8 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14889
-Grant resource 9 for process 14889
-Sent message to process 14889
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 0 from process: 14886
-Grant resource 0 for process 14886
-Sent message to process 14886
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 7 from process: 14888
-Grant resource 7 for process 14888
-Sent message to process 14888
-Received request for resource 2 from process: 14886
-Grant resource 2 for process 14886
-Sent message to process 14886
-Received request for resource 6 from process: 14885
-Grant resource 6 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14887
-Grant resource 8 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14889
-Grant resource 4 for process 14889
-Sent message to process 14889
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14886
-Grant resource 6 for process 14886
-Sent message to process 14886
-Received request for resource 5 from process: 14885
-Grant resource 5 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 6 from process: 14889
-Grant resource 6 for process 14889
-Sent message to process 14889
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14886
-Grant resource 8 for process 14886
-Sent message to process 14886
-Received request from process 14885 to release resource 3
-Process 14885 releases resource: 3
-Received request for resource 8 from process: 14887
-Grant resource 8 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 1 from process: 14888
-Grant resource 1 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14886
-Grant resource 6 for process 14886
-Sent message to process 14886
-Received request for resource 3 from process: 14887
-Grant resource 3 for process 14887
-Sent message to process 14887
-Received request for resource 6 from process: 14885
-Grant resource 6 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 7 from process: 14888
-Grant resource 7 for process 14888
-Sent message to process 14888
-Received request for resource 1 from process: 14886
-Grant resource 1 for process 14886
-Sent message to process 14886
-Received request for resource 0 from process: 14887
-Grant resource 0 for process 14887
-Sent message to process 14887
-Received request for resource 6 from process: 14885
-Grant resource 6 for process 14885
-Sent message to process 14885
-Received request for resource 1 from process: 14889
-Grant resource 1 for process 14889
-Sent message to process 14889
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request from process 14886 to release resource -100
-Received request for resource 7 from process: 14887
-Grant resource 7 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 0 from process: 14889
-Grant resource 0 for process 14889
-Sent message to process 14889
-Received request for resource 0 from process: 14888
-Grant resource 0 for process 14888
-Sent message to process 14888
-Process 14886 has been terminated
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 3 from process: 14885
-Grant resource 3 for process 14885
-Sent message to process 14885
-Received request for resource 7 from process: 14889
-Grant resource 7 for process 14889
-Sent message to process 14889
-Received request for resource 0 from process: 14888
-Grant resource 0 for process 14888
-Sent message to process 14888
-Received request for resource 0 from process: 14887
-Grant resource 0 for process 14887
-Sent message to process 14887
-Received request for resource 6 from process: 14885
-Grant resource 6 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14889
-Grant resource 2 for process 14889
-Sent message to process 14889
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 7 from process: 14889
-Grant resource 7 for process 14889
-Sent message to process 14889
-Received request for resource 1 from process: 14888
-Grant resource 1 for process 14888
-Sent message to process 14888
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 0 from process: 14887
-Grant resource 0 for process 14887
-Sent message to process 14887
-Received request for resource 9 from process: 14885
-Grant resource 9 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14889
-Grant resource 9 for process 14889
-Sent message to process 14889
-Received request for resource 9 from process: 14888
-Grant resource 9 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14887
-Grant resource 8 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 2 from process: 14889
-Grant resource 2 for process 14889
-Sent message to process 14889
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 7 from process: 14887
-Grant resource 7 for process 14887
-Sent message to process 14887
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Received request for resource 3 from process: 14885
-Grant resource 3 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14889
-Grant resource 4 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14889
-Grant resource 5 for process 14889
-Sent message to process 14889
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14887
-Grant resource 8 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 6 from process: 14889
-Grant resource 6 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14888
-Grant resource 3 for process 14888
-Sent message to process 14888
-Received request for resource 3 from process: 14889
-Grant resource 3 for process 14889
-Sent message to process 14889
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 0 from process: 14889
-Grant resource 0 for process 14889
-Sent message to process 14889
-Received request for resource 7 from process: 14887
-Grant resource 7 for process 14887
-Sent message to process 14887
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 3 from process: 14888
-Grant resource 3 for process 14888
-Sent message to process 14888
-Received request for resource 1 from process: 14889
-Grant resource 1 for process 14889
-Sent message to process 14889
-Received request for resource 1 from process: 14887
-Grant resource 1 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 6 from process: 14888
-Grant resource 6 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14889
-Grant resource 8 for process 14889
-Sent message to process 14889
-Received request for resource 0 from process: 14885
-Grant resource 0 for process 14885
-Sent message to process 14885
-Running Deadlock Detection Algorithm
-Deadlock Detected: Deleting process 14889
-Grant resource 4 to unblock process 14887
-Sent message to process 14887
-Grant resource 4 to unblock process 14885
-Sent message to process 14885
-Grant resource 9 to unblock process 14888
-Sent message to process 14888
-Received request for resource 9 from process: 14885
-Grant resource 9 for process 14885
-Sent message to process 14885
-Received request for resource 8 from process: 14885
-Grant resource 8 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14885
-Grant resource 4 for process 14885
-Sent message to process 14885
-Received request for resource 5 from process: 14887
-Grant resource 5 for process 14887
-Sent message to process 14887
-Received request from process 14888 to release resource 3
-Process 14888 releases resource: 3
-Received request for resource 7 from process: 14888
-Grant resource 7 for process 14888
-Sent message to process 14888
-Received request from process 14887 to release resource 6
-Process 14887 releases resource: 6
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Received request for resource 4 from process: 14888
-Grant resource 4 for process 14888
-Sent message to process 14888
-Received request for resource 9 from process: 14885
-Grant resource 9 for process 14885
-Sent message to process 14885
-Received request for resource 9 from process: 14887
-Grant resource 9 for process 14887
-Sent message to process 14887
-Received request for resource 1 from process: 14888
-Grant resource 1 for process 14888
-Sent message to process 14888
-Process 14889 has been terminated
-Received request for resource 2 from process: 14885
-Grant resource 2 for process 14885
-Sent message to process 14885
-Received request for resource 0 from process: 14888
-Grant resource 0 for process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 5 from process: 14887
-Grant resource 5 for process 14887
-Sent message to process 14887
-Received request for resource 7 from process: 14887
-Grant resource 7 for process 14887
-Sent message to process 14887
-Received request for resource 7 from process: 14885
-Grant resource 7 for process 14885
-Sent message to process 14885
-Received request for resource 6 from process: 14887
-Grant resource 6 for process 14887
-Sent message to process 14887
-Received request for resource 2 from process: 14887
-Grant resource 2 for process 14887
-Sent message to process 14887
-Running Deadlock Detection Algorithm
-Deadlock Detected: Deleting process 14885
-Grant resource 4 to unblock process 14885
-Sent message to process 14885
-Grant resource 4 to unblock process 14887
-Sent message to process 14887
-Grant resource 9 to unblock process 14888
-Sent message to process 14888
-Received request for resource 8 from process: 14888
-Grant resource 8 for process 14888
-Sent message to process 14888
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Received request for resource 5 from process: 14888
-Grant resource 5 for process 14888
-Sent message to process 14888
-Received request for resource 4 from process: 14887
-Grant resource 4 for process 14887
-Sent message to process 14887
-Process 14885 has been terminated
+Process 296924 has launched at 0 seconds and 5000 nano
+Process 296925 has launched at 0 seconds and 10000 nano
+Process 296926 has launched at 0 seconds and 15000 nano
+Process 296927 has launched at 0 seconds and 20000 nano
+Process 296928 has launched at 0 seconds and 25000 nano
+Received request for resource 9 from process: 296924
+Grant resource 9 for process 296924
+Sent message to process 296924
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 3 from process: 296924
+Grant resource 3 for process 296924
+Sent message to process 296924
+Received request for resource 6 from process: 296924
+Grant resource 6 for process 296924
+Sent message to process 296924
+Received request for resource 7 from process: 296924
+Grant resource 7 for process 296924
+Sent message to process 296924
+Received request for resource 9 from process: 296924
+Grant resource 9 for process 296924
+Sent message to process 296924
+Received request for resource 4 from process: 296924
+Grant resource 4 for process 296924
+Sent message to process 296924
+Received request for resource 2 from process: 296924
+Grant resource 2 for process 296924
+Sent message to process 296924
+Received request for resource 5 from process: 296924
+Grant resource 5 for process 296924
+Sent message to process 296924
+Received request for resource 3 from process: 296925
+Grant resource 3 for process 296925
+Sent message to process 296925
+Received request for resource 4 from process: 296924
+Grant resource 4 for process 296924
+Sent message to process 296924
+Received request for resource 7 from process: 296925
+Grant resource 7 for process 296925
+Sent message to process 296925
+Received request from process 296924 to release resource 7
+Process 296924 releases resource: 7
+Received request for resource 5 from process: 296924
+Grant resource 5 for process 296924
+Sent message to process 296924
+Received request for resource 8 from process: 296925
+Grant resource 8 for process 296925
+Sent message to process 296925
+Received request for resource 8 from process: 296924
+Grant resource 8 for process 296924
+Sent message to process 296924
+Received request for resource 8 from process: 296925
+Grant resource 8 for process 296925
+Sent message to process 296925
+Received request for resource 7 from process: 296924
+Grant resource 7 for process 296924
+Sent message to process 296924
+Received request for resource 9 from process: 296925
+Grant resource 9 for process 296925
+Sent message to process 296925
+Received request for resource 5 from process: 296924
+Grant resource 5 for process 296924
+Sent message to process 296924
+Received request for resource 5 from process: 296924
+Grant resource 5 for process 296924
+Sent message to process 296924
+Received request for resource 0 from process: 296925
+Grant resource 0 for process 296925
+Sent message to process 296925
+Received request from process 296924 to release resource 5
+Process 296924 releases resource: 5
+Received request for resource 2 from process: 296924
+Grant resource 2 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296926
+Grant resource 1 for process 296926
+Sent message to process 296926
+Received request for resource 5 from process: 296924
+Grant resource 5 for process 296924
+Sent message to process 296924
+Received request for resource 8 from process: 296926
+Grant resource 8 for process 296926
+Sent message to process 296926
+Received request for resource 7 from process: 296924
+Grant resource 7 for process 296924
+Sent message to process 296924
+Received request for resource 9 from process: 296926
+Grant resource 9 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 4 from process: 296926
+Grant resource 4 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296925
+Grant resource 1 for process 296925
+Sent message to process 296925
+Received request for resource 1 from process: 296926
+Grant resource 1 for process 296926
+Sent message to process 296926
+Received request for resource 7 from process: 296924
+Grant resource 7 for process 296924
+Sent message to process 296924
+Received request for resource 7 from process: 296927
+Grant resource 7 for process 296927
+Sent message to process 296927
+Received request for resource 8 from process: 296925
+Grant resource 8 for process 296925
+Sent message to process 296925
+Received request for resource 4 from process: 296926
+Grant resource 4 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 9 from process: 296925
+Grant resource 9 for process 296925
+Sent message to process 296925
+Received request for resource 8 from process: 296926
+Grant resource 8 for process 296926
+Sent message to process 296926
+Received request for resource 1 from process: 296924
+Grant resource 1 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296925
+Grant resource 1 for process 296925
+Sent message to process 296925
+Received request for resource 8 from process: 296926
+Grant resource 8 for process 296926
+Sent message to process 296926
+Received request for resource 1 from process: 296924
+Grant resource 1 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296927
+Grant resource 1 for process 296927
+Sent message to process 296927
+Received request for resource 1 from process: 296925
+Grant resource 1 for process 296925
+Sent message to process 296925
+Received request for resource 2 from process: 296926
+Grant resource 2 for process 296926
+Sent message to process 296926
+Received request for resource 1 from process: 296924
+Grant resource 1 for process 296924
+Sent message to process 296924
+Received request for resource 6 from process: 296927
+Grant resource 6 for process 296927
+Sent message to process 296927
+Received request for resource 2 from process: 296925
+Grant resource 2 for process 296925
+Sent message to process 296925
+Received request for resource 0 from process: 296926
+Grant resource 0 for process 296926
+Sent message to process 296926
+Received request for resource 3 from process: 296924
+Grant resource 3 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296927
+Grant resource 1 for process 296927
+Sent message to process 296927
+Received request for resource 4 from process: 296925
+Grant resource 4 for process 296925
+Sent message to process 296925
+Received request for resource 9 from process: 296926
+Grant resource 9 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 9 from process: 296927
+Grant resource 9 for process 296927
+Sent message to process 296927
+Received request for resource 7 from process: 296925
+Grant resource 7 for process 296925
+Sent message to process 296925
+Received request for resource 2 from process: 296926
+Grant resource 2 for process 296926
+Sent message to process 296926
+Received request for resource 8 from process: 296924
+Grant resource 8 for process 296924
+Sent message to process 296924
+Received request for resource 6 from process: 296927
+Grant resource 6 for process 296927
+Sent message to process 296927
+Received request for resource 0 from process: 296925
+Grant resource 0 for process 296925
+Sent message to process 296925
+Received request for resource 6 from process: 296926
+Grant resource 6 for process 296926
+Sent message to process 296926
+Received request for resource 1 from process: 296924
+Grant resource 1 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296927
+Grant resource 1 for process 296927
+Sent message to process 296927
+Received request for resource 0 from process: 296925
+Grant resource 0 for process 296925
+Sent message to process 296925
+Received request for resource 6 from process: 296924
+Grant resource 6 for process 296924
+Sent message to process 296924
+Received request for resource 6 from process: 296925
+Grant resource 6 for process 296925
+Sent message to process 296925
+Received request for resource 2 from process: 296926
+Grant resource 2 for process 296926
+Sent message to process 296926
+Received request for resource 7 from process: 296927
+Grant resource 7 for process 296927
+Sent message to process 296927
+Received request for resource 0 from process: 296924
+Grant resource 0 for process 296924
+Sent message to process 296924
+Received request for resource 5 from process: 296925
+Grant resource 5 for process 296925
+Sent message to process 296925
+Received request for resource 3 from process: 296926
+Grant resource 3 for process 296926
+Sent message to process 296926
+Received request for resource 4 from process: 296927
+Grant resource 4 for process 296927
+Sent message to process 296927
+Received request for resource 1 from process: 296924
+Grant resource 1 for process 296924
+Sent message to process 296924
+Received request for resource 6 from process: 296925
+Grant resource 6 for process 296925
+Sent message to process 296925
+Received request for resource 0 from process: 296926
+Grant resource 0 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296927
+Grant resource 0 for process 296927
+Sent message to process 296927
+Received request for resource 4 from process: 296924
+Grant resource 4 for process 296924
+Sent message to process 296924
+Received request for resource 1 from process: 296925
+Grant resource 1 for process 296925
+Sent message to process 296925
+Received request for resource 8 from process: 296926
+Grant resource 8 for process 296926
+Sent message to process 296926
+Received request from process 296924 to release resource 9
+Process 296924 releases resource: 9
+Received request for resource 9 from process: 296924
+Grant resource 9 for process 296924
+Sent message to process 296924
+Received request for resource 3 from process: 296925
+Grant resource 3 for process 296925
+Sent message to process 296925
+Received request for resource 2 from process: 296926
+Grant resource 2 for process 296926
+Sent message to process 296926
+Received request for resource 8 from process: 296928
+Grant resource 8 for process 296928
+Sent message to process 296928
+Received request for resource 3 from process: 296924
+Grant resource 3 for process 296924
+Sent message to process 296924
+Received request from process 296925 to release resource 8
+Process 296925 releases resource: 8
+Received request for resource 9 from process: 296925
+Grant resource 9 for process 296925
+Sent message to process 296925
+Received request for resource 5 from process: 296926
+Grant resource 5 for process 296926
+Sent message to process 296926
+Received request for resource 6 from process: 296928
+Grant resource 6 for process 296928
+Sent message to process 296928
+Received request for resource 6 from process: 296924
+Grant resource 6 for process 296924
+Sent message to process 296924
+Received request for resource 2 from process: 296925
+Grant resource 2 for process 296925
+Sent message to process 296925
+Received request for resource 6 from process: 296926
+Grant resource 6 for process 296926
+Sent message to process 296926
+Received request for resource 9 from process: 296928
+Grant resource 9 for process 296928
+Sent message to process 296928
+Received request for resource 4 from process: 296924
+Grant resource 4 for process 296924
+Sent message to process 296924
+Received request for resource 5 from process: 296925
+Grant resource 5 for process 296925
+Sent message to process 296925
+Received request for resource 3 from process: 296926
+Grant resource 3 for process 296926
+Sent message to process 296926
+Received request for resource 0 from process: 296928
+Grant resource 0 for process 296928
+Sent message to process 296928
+Received request from process 296924 to release resource 2
+Process 296924 releases resource: 2
